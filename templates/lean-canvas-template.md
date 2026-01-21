@@ -1,8 +1,24 @@
 # Lean Canvas: [IDEA NAME]
 
-**Date**: [DATE]
-**Version**: 1.0
-**Status**: Initial Validation
+**Date**: [DATE] | **Version**: 1.0 | **Status**: Initial Validation
+
+**Target length**: 150-200 lines total | **Guideline**: If it doesn't fit on 2-3 printed pages, it's too long
+
+*This is a one-page business plan, not a business plan. Be ruthlessly concise.*
+
+---
+
+## 📋 Executive Summary
+
+**Idea**: [What you're building + who it's for + how it works, in one sentence]
+
+**Target**: [Market size + specific customer segment]
+
+**Economics**: [Total investment + revenue model + break-even point]
+
+**Risk**: [#1 riskiest assumption]
+
+**Next Action**: [Immediate validation step you'll take this week]
 
 ---
 
@@ -20,24 +36,23 @@
 
 ## 👥 Customer Segments
 
-### Primary Segment
-[Specific customer description: role, industry, size, demographics]
+**Primary**: [Specific customer description: role, industry, company size, geography]
 
-### Early Adopters
-[Who will adopt first and why]
+**Secondary**: [If applicable, otherwise remove]
 
-### Reachability
-[How you'll access these customers]
+**Market size**: [Total addressable users/companies + calculation/source] | [Geographic focus] | [Immediate reach via existing channels]
+
+**Reachability**: [Top 3 channels to reach them] | [Existing networks or partnerships]
 
 ---
 
 ## 💎 Unique Value Proposition
 
-### Single, Clear Message
-[One sentence: We help X do Y by Z]
+**"We help [customer] [achieve outcome] by [unique approach]"**
 
-### High-Level Concept
-[Simple explanation anyone can understand]
+**High-level concept**: [Analogy anyone can understand, e.g., "Like Uber for X" or "GitHub Copilot but for Y"]
+
+**Why different**: [vs Alternative 1] | [vs Alternative 2] | [vs Alternative 3]
 
 ---
 
@@ -66,110 +81,115 @@
 
 ## 📊 Channels
 
-### Customer Acquisition
-[How you'll reach and acquire customers]
+**Primary**: [Main channel for customer acquisition]
 
-### Distribution Strategy
-[Free vs paid, inbound vs outbound, direct vs indirect]
+**Early adopters**: [How you'll reach first users]
 
----
+**Community/Content**: [Organic channels - forums, docs, content marketing]
 
-## 💰 Revenue Streams
+**Launch strategy**: [Phase 1] → [Phase 2] → [Phase 3]
 
-### Revenue Model
-[Subscription, license, transaction, etc.]
-
-### Pricing
-[Price point or range]
-
-### Unit Economics
-[LTV, gross margin if known]
+**Viral loop**: [If applicable, how users bring other users]
 
 ---
 
-## 💸 Cost Structure
+## 💰 Economics
 
-### Top Cost Drivers
-1. [Cost 1]
-2. [Cost 2]
-3. [Cost 3]
+**Revenue model**: [How you make money - subscription/license/transaction/freemium/etc.] | [Pricing]
 
-### Customer Acquisition Cost
-[Estimated CAC or TBD]
+**Per-customer revenue**: [Unit economics, e.g., "50 users × $10/month × 24 months = $12,000"]
+
+**Investment**:
+- Build: [Cost to build MVP]
+- Ongoing: [Annual operational costs]
+- **Total Year 1**: [Build + ongoing]
+
+**Break-even**: [Revenue needed] / [Per-customer revenue] = [X customers] = [~Y projects or time period]
+
+**Forecast**: [Conservative estimate for Year 1] = [Expected revenue] = [Net profit/loss]
+
+**Profitability**: [When you expect to be profitable]
 
 ---
 
 ## 📈 Key Metrics
 
-### North Star Metric
-[The one number that matters most]
+**North Star**: [The one metric that best indicates success]
 
-### Supporting Metrics
-- [Metric 2]
-- [Metric 3]
+**Success criteria**:
+- [Timeframe 1]: [Target metric value]
+- [Timeframe 2]: [Target metric value]
 
-### Validation Criteria
-[What result proves this works? What disproves it?]
+**Supporting metrics**:
+- [Metric 2]: [Target value]
+- [Metric 3]: [Target value]
+- [Metric 4]: [Target value]
+
+**Tracking**: [How you'll measure these - analytics, surveys, etc.]
 
 ---
 
-## 🚨 Critical Assumptions & Risks
+## 🚨 Critical Risks
 
-### Riskiest Assumption
-**[THE assumption that, if wrong, invalidates the entire idea]**
+**Riskiest assumption**: [THE assumption that, if wrong, kills this idea - describe why it's risky]
 
-### Top 3 Risks
-1. **[Risk Type]**: [Description]
-2. **[Risk Type]**: [Description]
-3. **[Risk Type]**: [Description]
+**Top 3-5 Risks**:
 
-### Validation Approach
-[How you'll test the riskiest assumption first]
+1. **[Risk type] ([PRIORITY])**: [Description of risk] → [Impact if it happens]
+   - *Mitigation*: [How you'll reduce this risk]
+
+2. **[Risk type] ([PRIORITY])**: [Description] → [Impact]
+   - *Mitigation*: [How you'll reduce/test this]
+
+3. **[Risk type] ([PRIORITY])**: [Description] → [Impact]
+   - *Mitigation*: [How you'll reduce/test this]
+
+**Key unknowns**: [3-5 critical things you don't know yet that need validation]
+
+**Assumptions to validate**: [5-10 assumptions that require testing through customer conversations/experiments]
 
 ---
 
 ## 🎬 Next Steps
 
-### Immediate Action
-[The ONE thing to do first]
+**[THIS WEEK/MONTH]: [Primary validation action]**
 
-### Validation Experiments
-1. [Test riskiest assumption]
-2. [Validate customer segment]
-3. [Test pricing/willingness to pay]
+**Setup**: [How you'll run the test]
 
-### Timeline
-[Target for initial validation]
+**Measure**: [What you'll track]
 
----
+**Decision criteria**:
+- ✅ [Success threshold]: [Action if met]
+- ⚠️ [Partial success]: [Action if partially met]
+- ❌ [Failure threshold]: [Action if not met]
 
-## 📝 Notes & Assumptions
+**Timeline**:
+- [Timeframe 1]: [Action]
+- [Timeframe 2]: [Decision point]
+- [Timeframe 3]: [Next milestone]
 
-### Known Unknowns (TBD)
-- [What you don't know yet]
-- [What requires research]
-- [What needs validation]
-
-### Key Assumptions
-- [Assumption 1]
-- [Assumption 2]
-- [Assumption 3]
-
-### Open Questions
-- [Question 1]
-- [Question 2]
-- [Question 3]
+**Why this matters**: [One sentence explaining why this validation is critical]
 
 ---
 
-## 🔗 Resources
+## 📝 Key Assumptions
 
-- [Link to customer research]
-- [Link to competitive analysis]
-- [Link to market data]
+[List 5-10 critical assumptions that need validation - already listed in Risks section]
+
+*Mark all unknowns as "TBD - Requires validation"*
 
 ---
 
-**⚠️ Remember**: This canvas is a snapshot of assumptions. Everything marked "TBD" or listed as an assumption MUST be validated through customer conversations and experiments. The goal is not to perfect this canvas, but to identify and test the riskiest assumptions as quickly as possible.
+## ⚠️ Reality Check
 
-**🎯 Focus**: Test the riskiest assumption first. Everything else is secondary.
+[2-3 sentences of honest assessment: What's the biggest weakness? What could go wrong? What's your unfair disadvantage?]
+
+**Success depends on**: [3-4 critical factors that must go right]
+
+**If [major risk] happens**: [Contingency plan or pivot strategy]
+
+**Remember**: [One-sentence reminder of the goal or what matters most]
+
+---
+
+**Created**: [DATE] | **Next Review**: [DATE + 2-4 weeks] | **Owner**: [NAME/TEAM]
