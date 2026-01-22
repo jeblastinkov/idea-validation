@@ -1,207 +1,248 @@
 # Opportunity Assessment: [OPPORTUNITY NAME]
 
-**Date**: [DATE]
-**Product**: [PRODUCT NAME]
-**Team**: [TEAM NAME]
-**Assessor**: [NAME]
+**Date**: [DATE] | **Product**: [PRODUCT NAME] | **Team**: [TEAM NAME]
+
+**Decision**: [ ] PURSUE | [ ] EXPLORE | [ ] HOLD | [ ] PASS | **Biggest Risk**: [Risk type + level]
+
+**Target length**: 250-300 lines | **Guideline**: SVPG assessments should be executive-ready, scannable in 5-10 minutes
 
 ---
 
-## 1️⃣ What problem will this solve?
+## Executive Summary
 
-### Problem Statement
-[Clear description of the customer problem]
+**Opportunity**: [One sentence: what you're building for whom]
 
-### Problem Severity
-- [ ] Must-have (critical pain)
-- [ ] Should-have (significant pain)
-- [ ] Nice-to-have (minor inconvenience)
+**Target**: [Market size + specific customer segment]
 
-### Evidence
-[How do we know this is a real problem?]
+**Revenue**: [Revenue model + Year 1-3 projections]
 
----
+**Investment**: [Total investment + break-even point]
 
-## 2️⃣ For whom do we solve that problem?
+**Strategic Value**: [Why this matters beyond revenue]
 
-### Target User/Customer
-[Specific persona or segment]
+**Risks**: Value ([H/M/L]) | Usability ([H/M/L]) | Feasibility ([H/M/L]) | Viability ([H/M/L])
 
-### Population Size
-[How many people/companies have this problem?]
+**Urgency**: [Why now? Timing urgency]
 
-### Accessibility
-[Can we reach them? How?]
+**Next Action**: [Immediate validation step]
 
 ---
 
-## 3️⃣ How big is the opportunity?
+## 1️⃣ Problem
 
-### Market Size
-- **TAM** (Total Addressable Market): [Amount]
-- **SAM** (Serviceable Addressable Market): [Amount]
-- **SOM** (Serviceable Obtainable Market): [Amount]
+**What**: [Clear problem description - what's broken/frustrating for customers?]
 
-### Revenue Potential
-[Estimated revenue if successful]
+**Impact**: [Consequences of this problem - time waste, errors, costs, etc.]
 
-### Strategic Importance
-[Why this matters beyond revenue]
+**Severity**: [ ] Must-have | [ ] Should-have | [ ] Nice-to-have
+
+**Evidence**: [How we know this is real - observations, data, customer feedback]
 
 ---
 
-## 4️⃣ What alternatives are out there?
+## 2️⃣ Target Customer
 
-### Current Solutions
-1. [Alternative 1 - How customers solve today]
-2. [Alternative 2 - Competitor]
-3. [Alternative 3 - Workaround]
+**Primary**: [Specific persona: role, company size, industry, geography]
 
-### Our Differentiation
-[Why customers will switch to our solution]
+**Secondary**: [If applicable, otherwise remove]
 
----
+**Market**: [Total addressable users/companies + calculation] | [Geography] | [Immediate reach]
 
-## 5️⃣ Why are we best suited to pursue this?
-
-### Strategic Fit
-[How this aligns with company strategy]
-
-### Unique Capabilities
-[What we have that others don't]
-
-### Unfair Advantage
-[Sustainable competitive advantage]
+**Accessibility**: [Top 3 channels to reach them]
 
 ---
 
-## 6️⃣ Why now?
+## 3️⃣ Opportunity Size
 
-### Market Timing
-[What's changed in the market?]
+**Market**: TAM [X] | SAM [Y] | SOM [Z] (Year 1 target)
 
-### Technology Enablers
-[What technology makes this possible now?]
+**Revenue** ([direct/indirect model]):
+- Per customer/project: [Unit economics]
+- Year 1: [Target projects/customers] = [€X]
+- Year 2-3: [Scaling projections]
 
-### Competitive Landscape
-[What threats or opportunities exist now?]
+**Investment**: [Total Year 1] | Break-even: [X customers/projects]
 
----
+**Strategic Importance**: [Why this matters beyond revenue - competitive defense, market position, customer retention, etc.]
 
-## 7️⃣ How will we get this product to market?
-
-### Go-to-Market Strategy
-[How we'll reach customers]
-
-### Channels
-[Distribution approach]
-
-### Partnerships
-[Key partners needed]
+**Strategic value vs direct revenue**: [Which matters more?]
 
 ---
 
-## 8️⃣ How will we measure success?
+## 4️⃣ Alternatives & Differentiation
 
-### Success Metrics
-1. [Primary metric]
-2. [Secondary metric]
-3. [Tertiary metric]
+**Current solutions**:
+1. [How customers solve today - manual/workaround]
+2. [Direct competitor]
+3. [Indirect alternative]
+4. [What they do if nothing exists]
 
-### Success Threshold
-[What numbers indicate success?]
+**Competitors**: [Direct competitors] | [Indirect competitors] | [Emerging threats]
 
-### Timeline
-[When will we know?]
-
----
-
-## 9️⃣ What factors are critical to success?
-
-### Dependencies
-[What must be in place?]
-
-### Required Capabilities
-[What skills/resources do we need?]
-
-### Key Risks to Manage
-[What could derail this?]
+**Differentiation**: [Why we're different - specific advantages vs each alternative above]
 
 ---
 
-## 🔟 What are the risks?
+## 5️⃣ Why Us
 
-### Value Risk
-**Will customers buy/use this?**
-- Risk level: [ ] High [ ] Medium [ ] Low
-- Mitigation: [How we'll test]
+**Strategic fit**: [How this aligns with company strategy + core business]
 
-### Usability Risk
-**Can users figure out how to use this?**
-- Risk level: [ ] High [ ] Medium [ ] Low
-- Mitigation: [How we'll test]
+**Unique capabilities**: [3-6 things we have that others don't - tech, expertise, relationships, data, etc.]
 
-### Feasibility Risk
-**Can we build this?**
-- Risk level: [ ] High [ ] Medium [ ] Low
-- Mitigation: [How we'll prove]
+**Unfair advantage**: [Sustainable competitive advantage that can't be easily copied]
 
-### Business Viability Risk
-**Will this work for our business?**
-- Risk level: [ ] High [ ] Medium [ ] Low
-- Mitigation: [How we'll validate]
+---
+
+## 6️⃣ Why Now
+
+**Market timing**: [What's changed in market that creates this opportunity?]
+
+**Technology**: [What tech enablers make this possible now vs before?]
+
+**Competitive threat/opportunity**: [What competitive dynamics create urgency?]
+
+**Customer readiness**: [Are customers ready for this now?]
+
+**Urgency**: [HIGH/MEDIUM/LOW] - [Specific timing pressure]
+
+---
+
+## 7️⃣ Go-to-Market
+
+**Strategy**: [High-level GTM approach - PLG, sales-led, channel, etc.]
+
+**Channels**: [Primary channel] | [Secondary channels] | [Community/organic]
+
+**Partnerships**: [Critical partners needed for distribution/success]
+
+**Launch**: [Phase 1] → [Phase 2] → [Phase 3]
+
+**Viral loop**: [If applicable, how users bring other users]
+
+---
+
+## 8️⃣ Success Metrics
+
+**Primary**: [One metric that best indicates success]
+
+**Supporting**:
+- [Metric 2]: [Target]
+- [Metric 3]: [Target]
+- [Metric 4]: [Target]
+
+**Decision gates**: [Timeframe 1]: [Metric target] | [Timeframe 2]: [Target] | [Timeframe 3]: [Target]
+
+**Tracking**: [How you'll measure - analytics, surveys, etc.]
+
+---
+
+## 9️⃣ Critical Success Factors
+
+**Dependencies**: [What must be in place for this to work - approvals, integrations, partners, etc.]
+
+**Required capabilities**: [What skills/resources/behaviors are needed - adoption, technical accuracy, speed, etc.]
+
+---
+
+## 🔟 Risks (SVPG Four Risks)
+
+### Value Risk: Will customers buy/use this?
+**Level**: [ ] High [x] Medium [ ] Low
+
+**Why**: [Reasons for this risk level]
+
+**Mitigation**: [How you'll test/reduce this risk]
+
+---
+
+### Usability Risk: Can users figure it out?
+**Level**: [ ] High [ ] Medium [ ] Low
+
+**Why**: [Reasons for this risk level]
+
+**Mitigation**: [How you'll test/reduce this risk]
+
+---
+
+### Feasibility Risk: Can we build it?
+**Level**: [ ] High [ ] Medium [ ] Low
+
+**Why**: [Reasons for this risk level - technical challenges, resource constraints, etc.]
+
+**Remaining unknowns**: [What still needs technical validation]
+
+---
+
+### Business Viability Risk: Does it work for our business?
+**Level**: [ ] High [ ] Medium [ ] Low
+
+**Why**: [Reasons - investment size, ROI timeline, strategic fit, etc.]
+
+**Break-even**: [When/how this becomes profitable]
 
 ---
 
 ## 🎯 Recommendation
 
-### Decision
-- [ ] **Pursue** - High confidence, low risk
-- [ ] **Explore** - Promising but needs more discovery
-- [ ] **Hold** - Interesting but not now
-- [ ] **Pass** - Not the right opportunity
+**Decision**: [ ] PURSUE | [ ] EXPLORE | [ ] HOLD | [ ] PASS
 
-### Rationale
-[Why this recommendation?]
+**Rationale** (3-5 bullet points):
+- ✅/⚠️/❌ [Key factor 1]
+- ✅/⚠️/❌ [Key factor 2]
+- ✅/⚠️/❌ [Key factor 3]
 
----
-
-## 🚨 Biggest Risk
-
-**[THE single biggest risk that could invalidate this opportunity]**
-
-### Test Plan
-[How we'll validate/invalidate this risk quickly]
+**One-sentence recommendation**: [Summary of why pursue/explore/hold/pass]
 
 ---
 
-## 🎬 Next Steps
+## 🚨 Biggest Risk & Test Plan
 
-### Immediate Actions
-1. [First action]
-2. [Second action]
-3. [Third action]
+**Risk**: [THE biggest risk - usually Value or Competition] ([Level])
 
-### Discovery Plan
-[What discovery work is needed?]
+**Combined threats**: [If multiple risks compound each other, describe]
 
-### Decision Timeline
-[When will we make go/no-go decision?]
+### Validation Plan
 
----
+**THIS WEEK/MONTH**: [Specific test to validate/invalidate biggest risk]
 
-## 📝 Notes
+**Setup**: [How you'll run the test]
 
-### Additional Context
-[Any other relevant information]
+**Measure**: [What you'll track]
 
-### Open Questions
-- [Question 1]
-- [Question 2]
-- [Question 3]
+**Decision** ([Timeframe]):
+- ✅ [Success threshold] → [Action]
+- ⚠️ [Partial success] → [Action]
+- ❌ [Failure threshold] → [Action]
+
+**Why critical**: [One sentence on why this test matters]
+
+**Backup plan**: [What if biggest risk materializes - contingency/pivot]
 
 ---
 
-**Reviewed by**: [Names]
-**Approval**: [Approved/Needs more work]
-**Last updated**: [Date]
+## 🎬 Next Steps & Timeline
+
+### [Timeframe 1]: [Action]
+[Brief description of what happens in this phase]
+
+### [Timeframe 2]: Decision Gate
+[What decision is made + criteria]
+
+### [Timeframe 3]: [Action]
+[What happens if validation passes]
+
+**Critical path**: [Phase 1] → [Phase 2] → [Phase 3] → [Outcome]
+
+---
+
+## 📝 Key Assumptions & Open Questions
+
+**Assumptions**: [5-10 critical assumptions requiring validation]
+
+**Contingency**: [What if key competitor/risk materializes - partnership? pivot? stop?]
+
+**Potential outcomes**: Best / Good / Acceptable / Failure [with brief description of each]
+
+---
+
+**Reviewed by**: [Names] | **Approval**: [Status] | **Next review**: [Date]
