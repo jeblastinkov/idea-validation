@@ -24,11 +24,21 @@ Gather all information from previous skills:
 "Does this accurately reflect your idea? Any changes?"
 
 ### Output Generation
-Generate markdown file using template:
-- `/templates/lean-canvas-template.md`
 
-Save to:
-- `/outputs/[idea-name]-validation-canvas.md`
+**Select template**:
+- Lean Canvas: `/templates/lean-canvas-template.md` (150-200 lines target)
+- SVPG Assessment: `/templates/opportunity-assessment-template.md` (250-300 lines target)
+
+**Generate file**:
+1. Use ONLY user-provided + researched (confirmed) data
+2. Add executive summary at top (5-line overview)
+3. Format professionally (scannable, bullets, short paragraphs)
+4. Cite sources for researched data: "(Source: X via WebSearch)"
+5. Mark unknowns: "TBD - Requires validation"
+6. No duplication - each point stated once
+7. Check length: Lean 150-200, SVPG 250-300
+
+**Save to**: `/outputs/[sanitized-idea-name]-validation-canvas.md` or `-opportunity-assessment.md`
 
 ### Delivery
 "Your validation canvas is ready: `[filename].md`
@@ -42,8 +52,30 @@ Save to:
 **Key Action:** [Specific first validation step based on riskiest assumption]"
 
 ### Agent Behavior
-- Summarize concisely
-- Highlight the #1 risk to test first
-- Provide specific next action
-- No hallucination - only include provided information
+
+**Quality checklist before generating**:
+- [ ] All 8 skills completed (Lean) or 10 questions (SVPG)
+- [ ] No vague statements remain ("everyone", "better", etc.)
+- [ ] Quantified where possible (market size, pricing, timelines)
+- [ ] Assumptions explicitly marked as "TBD"
+- [ ] Researched data cited with sources
+- [ ] User confirmed summary
+
+**Content rules**:
+- Use ONLY provided/researched information (ZERO hallucination)
 - Mark unknowns as "TBD - Requires validation"
+- Cite researched data: "(Source: [X] via WebSearch, 2024)"
+- No embellishment or invented context
+
+**Executive formatting**:
+- Executive summary at top (Decision, risks, next action)
+- Scannable structure (bullets, short paragraphs max 4 lines)
+- Concise sections (10-30 lines each)
+- Professional tone (no emojis unless requested)
+- Length within target (150-200 Lean, 250-300 SVPG)
+
+**After generation**:
+- Highlight #1 riskiest assumption
+- Provide ONE specific next action (with timeframe)
+- No congratulations or cheerleading
+- State filename clearly
