@@ -20,15 +20,16 @@ Start: Do you have a product in market?
 
 ## Framework Comparison
 
-| Aspect | Lean Canvas | Opportunity Assessment | Value Proposition Canvas |
-|--------|-------------|----------------------|-------------------------|
-| **Best For** | New ventures | Existing products | Customer research |
-| **Output** | Business model | Go/No-go decision | Value/fit validation |
-| **Time** | 20-60 min | 30-90 min | 30-60 min |
-| **Stage** | Pre-product | Post-product | Pre/post product |
-| **Focus** | Business model | Opportunity viability | Customer needs |
-| **Format** | 1-page canvas | 10 questions | 2-sided canvas |
-| **Origin** | Ash Maurya | Marty Cagan (SVPG) | Alexander Osterwalder |
+| Aspect | Lean Canvas | Opportunity Assessment | Socratic Questioning | Value Proposition Canvas |
+|--------|-------------|----------------------|---------------------|-------------------------|
+| **Best For** | New ventures | Existing products | Any idea validation | Customer research |
+| **Output** | Business model | Go/No-go decision | Deeper thinking | Value/fit validation |
+| **Time** | 20-60 min | 30-90 min | Integrated | 30-60 min |
+| **Stage** | Pre-product | Post-product | Any stage | Pre/post product |
+| **Focus** | Business model | Opportunity viability | Critical thinking | Customer needs |
+| **Format** | 1-page canvas | 10 questions | Question methodology | 2-sided canvas |
+| **Origin** | Ash Maurya | Marty Cagan (SVPG) | Socrates/Philosophy | Alexander Osterwalder |
+| **Role** | Framework | Framework | Methodology | Framework |
 
 ## Lean Canvas
 
@@ -156,6 +157,51 @@ Start: Do you have a product in market?
 - User wants jobs-to-be-done approach
 - Deeper customer psychology needed
 
+## Socratic Questioning: A Universal Methodology
+
+**NEW**: Socratic Questioning is not a framework, but a questioning methodology that enhances ALL frameworks.
+
+### What is Socratic Questioning?
+
+A method of rigorous inquiry through targeted questions that:
+- Uncovers assumptions
+- Clarifies fuzzy thinking
+- Surfaces potential issues early
+- Strengthens reasoning
+
+**See**: `/frameworks/socratic-questioning.md` for complete guide
+
+### The 5 Socratic Categories
+
+1. **Problem Clarity** - "What specific pain? Who has it? How do you know?"
+2. **Solution Validation** - "Why this solution? What alternatives exist?"
+3. **Success Criteria** - "How will we measure success? What constitutes failure?"
+4. **Constraints & Trade-offs** - "What are we NOT doing? What if you had half the resources?"
+5. **Strategic Fit** - "Why now? Why you? What if we wait?"
+
+### How Socratic Questioning Enhances Frameworks
+
+**With Lean Canvas:**
+- Problem section → Use Problem Clarity questions
+- Solution section → Use Solution Validation + Constraints questions
+- Metrics section → Use Success Criteria questions
+- Unfair Advantage → Use Strategic Fit questions
+
+**With SVPG Opportunity Assessment:**
+- "What problem?" → Enhanced with Problem Clarity probes
+- "Why us? Why now?" → Enhanced with Strategic Fit challenges
+- "Success metrics?" → Enhanced with Success Criteria questions
+- "Risks?" → Enhanced with Constraint questions
+
+**Benefits:**
+- ✅ Deeper, more rigorous thinking
+- ✅ Better evidence gathering
+- ✅ Clearer assumptions identification
+- ✅ Stronger validation outcomes
+
+**Agent Integration:**
+Our validation agent uses Socratic techniques throughout all 9 skills to ensure high-quality answers.
+
 ## Validation Principles (Universal)
 
 Regardless of framework, always:
@@ -163,26 +209,31 @@ Regardless of framework, always:
 1. **Problem First**
    - Validate problem before solution
    - Talk to customers early and often
+   - Use Socratic probing: "How do you know this is a real problem?"
 
 2. **Assumptions Explicit**
    - List what you're assuming
    - Identify riskiest assumptions
    - Test highest risk first
+   - Use Socratic technique: "What would need to be true for this to work?"
 
 3. **Evidence-Based**
    - Don't hallucinate data
    - Mark unknowns clearly
    - Update based on learning
+   - Use Socratic challenge: "What evidence supports this claim?"
 
 4. **Iterative**
    - Validate, learn, update
    - Expect to pivot
    - Canvas is living document
+   - Use Socratic probe: "If you had half the time, what would you cut?"
 
 5. **Action-Oriented**
    - Every assumption → experiment
    - Every risk → test
    - Every unknown → research plan
+   - Use Socratic question: "How will you test this assumption?"
 
 ## Framework Evolution
 
