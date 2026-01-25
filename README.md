@@ -5,21 +5,23 @@ A conversational AI agent that guides product managers and product leaders throu
 ## What It Does
 
 This agent helps you:
-- **Define the problem** you're solving clearly
-- **Identify target customers** specifically
-- **Validate your value proposition** and differentiation
-- **Assess market opportunity** and competition
-- **Design business model** and pricing
-- **Identify critical risks** and assumptions to test
-- **Generate a one-page validation canvas** as output
+- **Define the problem** you're solving clearly with Socratic questioning
+- **Identify target customers** specifically (no "everyone" or "small businesses")
+- **Validate your value proposition** and differentiation with evidence
+- **Assess market opportunity** and competition (with research capability)
+- **Design business model** and pricing based on data
+- **Identify critical risks** and assumptions to test first
+- **Generate a one-page validation canvas** as output with cited sources
 
 ## Why Use It
 
-- ✅ **Structured approach**: Follows proven validation frameworks
-- ✅ **Prevents hallucination**: Only uses information you provide
-- ✅ **Challenges assumptions**: Pushes for clarity and evidence
-- ✅ **Brief and direct**: Executive-level communication
-- ✅ **Actionable output**: One-page canvas with next steps
+- ✅ **Structured approach**: Follows proven validation frameworks (Lean Canvas, SVPG, Socratic Questioning)
+- ✅ **Socratic questioning**: Uses 5 question categories to uncover assumptions and clarify thinking
+- ✅ **Research capability**: Can research market data, competitor pricing, and industry benchmarks when you need it
+- ✅ **Prevents hallucination**: Only uses information you provide or confirmed research data
+- ✅ **Challenges assumptions**: Pushes for clarity and evidence without being interrogative
+- ✅ **Brief and direct**: Executive-level communication (2-3 sentences max)
+- ✅ **Actionable output**: One-page canvas with next steps and cited sources
 - ✅ **Risk-focused**: Identifies riskiest assumptions to test first
 
 ## Quick Start
@@ -54,29 +56,46 @@ After completing all skills, the agent generates a one-page validation canvas sa
 
 ### What to Expect
 
-**Brief Responses**
+**Brief, Helpful Responses**
 ```
 Agent: "What problem does your idea solve?"
+User: "We make project management easier."
+Agent: "Too vague. What SPECIFIC problem in project management?"
 ```
 
-**Direct Challenges**
+**Socratic Probing**
 ```
-User: "Our target market is small businesses."
-Agent: "Too broad. Which specific type? What size? What industry?"
+User: "Sales teams waste time on admin work."
+Agent: "What admin work specifically? How much time?"
+User: "Updating CRM from email threads. About 5 hours per week."
+Agent: "✓ Quantified. Who experiences this most acutely?"
+```
+
+**Research Capability** (NEW)
+```
+User: "I don't know the market size."
+Agent: "Let me research that for you."
+[Uses WebSearch]
+Agent: "Found global CRM market is $65B (Gartner 2024). Your segment (email automation)
+is ~$8B. Does this match your understanding?"
+User: "Yes, sounds right."
+Agent: "✓ Using $8B TAM. Moving on."
 ```
 
 **No Hallucination**
 ```
-Agent: "Need market size. Estimate or mark as TBD?"
+Agent: "Need competitor pricing data. Should I research it?"
 (Instead of making up numbers)
 ```
 
 ### Communication Style
 
 - **2-3 sentences max** per response
-- **Asks for specifics** when answers are vague
-- **Challenges assumptions** respectfully
-- **Marks unknowns** as "TBD - Requires validation"
+- **Socratic questioning** to uncover assumptions and clarify thinking
+- **Researches market data** when you lack critical information
+- **Challenges vagueness** but guides toward better answers
+- **Marks unknowns** as "TBD - Requires validation" or researches them
+- **Cites sources** for all researched data
 - **Provides specific next action** after completion
 
 ## Project Structure
@@ -102,6 +121,7 @@ Agent: "Need market size. Estimate or mark as TBD?"
 ├── frameworks/
 │   ├── lean-canvas.md                # Lean Canvas guide
 │   ├── opportunity-assessment.md     # SVPG framework
+│   ├── socratic-questioning.md       # Socratic methodology (NEW)
 │   └── comparison.md                 # When to use which
 ├── templates/
 │   ├── lean-canvas-template.md       # Output template
@@ -110,12 +130,14 @@ Agent: "Need market size. Estimate or mark as TBD?"
 ├── outputs/                           # Generated canvases
 └── docs/
     ├── methodology-guide.md
-    └── getting-started.md
+    ├── getting-started.md
+    ├── socratic-integration-guide.md  # How Socratic questioning works (NEW)
+    └── agent-improvements-2026-01.md  # Recent enhancements (NEW)
 ```
 
 ## Methodologies
 
-This agent is based on:
+This agent combines three proven methodologies:
 
 ### Lean Canvas
 - **Created by**: Ash Maurya
@@ -129,12 +151,26 @@ This agent is based on:
 - **When**: Existing products deciding what to build next
 - **Output**: 10-question assessment with go/no-go recommendation
 
-### Default: Lean Canvas
-The agent uses **Lean Canvas** as default because:
+### Socratic Questioning (NEW)
+- **Purpose**: Uncover assumptions and clarify fuzzy thinking
+- **Method**: 5 question categories (Problem Clarity, Solution Validation, Success Criteria, Constraints, Strategic Fit)
+- **When**: Integrated throughout all validation conversations
+- **Impact**: Transforms validation from form-filling into rigorous, evidence-based thinking
+- **See**: `/frameworks/socratic-questioning.md` for complete framework
+
+### Default: Lean Canvas with Socratic Questioning
+The agent uses **Lean Canvas** as default output because:
 - Most users are validating new ideas (pre-product)
 - Covers full business model including revenue/costs
 - One-page format is immediately actionable
 - Widely recognized and understood
+
+**Socratic Questioning** enhances all frameworks by ensuring:
+- Specific, concrete problem statements (not abstract)
+- Evidence-based claims (not assumptions)
+- Clear success criteria with metrics
+- Explicit scope boundaries
+- Testable assumptions
 
 See `/frameworks/comparison.md` for detailed comparison.
 
@@ -286,6 +322,11 @@ We welcome contributions:
 - "Lean Startup" - Eric Ries' foundational book
 - "Value Proposition Design" - Customer-centric validation
 
+### Socratic Questioning Resources
+- [Socratic Method](https://en.wikipedia.org/wiki/Socratic_method) - Wikipedia overview
+- `/frameworks/socratic-questioning.md` - Complete framework in this repo
+- `/docs/socratic-integration-guide.md` - Practical integration guide
+
 ## FAQ
 
 **Q: How long does validation take?**
@@ -305,6 +346,9 @@ A: No. Validate the riskiest assumptions first, then iterate.
 
 **Q: Is this for B2B or B2C?**
 A: Both. The frameworks work for any business model.
+
+**Q: Can the agent help me research market data?**
+A: Yes! If you don't know critical information (market size, competitor pricing, industry benchmarks), the agent can research it using WebSearch and cite sources. It will NOT research your specific problem or solution—those require your domain expertise.
 
 ## License
 
