@@ -8,11 +8,19 @@ Define minimum viable solution features.
 ### Initial Question
 "What are the top 3 features your MVP must have to solve this problem?"
 
-### Follow-up Probes
-- "What's the simplest version that delivers value?"
-- "What would users pay for on day one?"
-- "What features can wait until later?"
-- "How will users access this solution?"
+### Follow-up Probes (Socratic Method)
+
+**Constraint & Trade-off Questions**:
+- "What's the simplest version that solves the core problem?" (avoid over-engineering)
+- "If you had half the time/resources, what would you cut?" (reveals priorities)
+- "What are we NOT going to do as part of the MVP?" (scope management)
+- "What existing workflows does this disrupt?" (adoption barriers)
+
+**Solution Validation Questions**:
+- "Why is this the right solution for that problem?" (logical connection)
+- "How will customers discover this solution?" (distribution thinking)
+- "What would users pay for on day one?" (value test)
+- "How will users access this?" (delivery channel)
 
 ### Required Information
 - Top 3 MVP features (must-haves only)
@@ -40,10 +48,23 @@ NOT INCLUDED IN MVP:
 [Features explicitly deferred]
 ```
 
-### Agent Behavior
-- **If too many features**: "That's too much. What 3 features are absolutely critical?"
-- **If vague**: "Be specific. What exactly does this feature do?"
+### Agent Behavior (Socratic Approach)
+
+**Challenge scope creep**:
+- **If too many features**: "That's too much. If you had half the time, what would you cut first?"
+- **If vague**: "Be specific. What exactly does this feature do? How does it solve the problem?"
 - **If over-engineered**: "Can this be simpler? What's the fastest way to test the hypothesis?"
+
+**Socratic Techniques**:
+- **"Constraint Test"**: "If you could only build ONE feature, which one? Why?"
+- **"Alternative Exploration"**: "What other ways could you solve this? Why did you choose this approach?"
+- **"What Would Need to Be True"**: "What assumptions does this solution rely on? What needs to be true?"
+- **"Second-Order Consequences"**: "If users adopt this, what changes in their workflow? What new problems emerge?"
+
+**Red Flags**:
+- ❌ "We need all these features to compete" → Likely scope creep
+- ❌ "Our competitors have this so we need it" → Not user-driven
+- ❌ "This will be easy to build" → Underestimating complexity
 
 ### Next Skill
 → `05-market-validation.md`
