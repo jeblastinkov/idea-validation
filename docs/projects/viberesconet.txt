@@ -1,0 +1,191 @@
+**User Journey:**
+
+The user arrives at the page [vibe.resco.net](http://vibe.resco.net/) – where they authenticate/register (try for free without registration?).
+
+After logging in (during registration? or only when creating a specific app?), the user chooses the backend to which they want to connect.
+
+The user should have the option to create “environments”, i.e., connections to a specific backend.
+
+This means that when they log in, they will already see a list of their environments of various types.
+
+*When selecting a backend, keep in mind that it’s not just about the backend (e.g., Dataverse) – it must also have the Resco Suite installed, and if not, we must add it, which takes some time if done at runtime.*
+
+Possible environment types:
+
+- Dataverse with Resco MVP
+- Dataverse without Resco
+- Salesforce
+- ServiceNow
+- No backend (use RescoCloud)
+
+These environments will be listed (like cards, showing the environment type, name, and some details).
+
+After selecting an existing environment or creating a new one, the user moves to the next step.
+
+---
+
+**In the next step**, they can choose what they want to create (vibecode):
+
+- General business app on top of RescoCRM (a.k.a. UIReplacement in Resco) – MVP – enabled
+- Form Component (IFrame controller for MCRM form) – Not MVP – visible but disabled
+- AI Assistant – Not MVP – visible but disabled
+- Questionnaire – Not MVP – visible but disabled
+
+---
+
+### **UIReplacement**
+
+The user must either select an existing mobile project or have a new project created for them.
+
+Our “model” must be aware of the entities available in the backend as well as those enabled in the project, and it should be able to modify the mobile project so that it enables/disables entities and fields.
+
+That is, it can modify the project’s metadata (for RescoCloud, theoretically also backend metadata).
+
+---
+
+For creating Resco Vibe apps, in **Phase 1** we will use an chatter with copilot or claude code that is configured to use the resco mcp server and the code will be displayed in the Monaco editor
+
+Using a prompt directly in GitHub Copilot chatter, the user will describe the use case and the kind of app they want to create.
+
+→ The app is generated → while generating, the Vibecoder must be informed about what is happening, i.e., some human-readable progress messages.
+
+After generation finishes, the generated code will be displaye din embedded monaco editor (nice to have: option to see a web preview), and the user will also see an option to get this Vibecoded app directly on their device.
+
+---
+
+**How to get the Vibecoded app on a device for the first time:**
+
+1. If the user does not yet have the app for a specific platform: they select the platform and receive a QR code or link from where they can directly install our Resco app.
+2. Then they must log in to the app and perform the first sync with their backend (this might not need to be emphasized).For this, a QR code will be used – once scanned, the app will sync with the specific backend (since the Vibecoded app exists in the environment created by the user, which is connected to some backend).It logs the user in and immediately opens the app in a mode where the UIReplacement points to the generated bundled JavaScript code.If any subsequent code changes are made on vibe.resco.net, the app on the device will automatically refresh.
+
+---
+
+**If the user was already logged in before:**
+
+Scanning the same QR code should not trigger login or sync of the mobile project (if still the same project) – it should only open the app in this live dev mode.
+
+---
+
+**Publish**
+
+The user can publish the app at any time and continue working on the development version.
+
+Publishing the app essentially uploads the current bundle to the `published` folder in `offlinehtml`, and the working version keeps the `src` folder with source code + preview bundle.
+
+### Component Creation
+
+This section allows users to build a UI components that can be included in standard Resco MobileCRM application. In this case the whole UI of the MCRM app is not replaced. The steps to get the live preview on the device and how to publish the project are same to the UIReplacement part.
+
+**Form Component**
+
+Here you can create a form component that is part of the woodford form. It can be included as a section (webview). The component has similar context as the UIReplacement app, but on top of that it has a specific context of the currently opened Form.
+
+**List Component**
+
+TBD
+
+### **AI Assistant**
+
+The Assistant is a specific type of business application or tool that can be embedded in Resco Mobile CRM either as a standalone app via **UIReplacement**, or as part of MCRM itself.
+
+It can be triggered from the main menu, from a specific view, or from a form.
+
+The Assistant is a chat feed where the user interacts—either via text input or voice control—with an agent.
+
+This agent has access to an LLM model and also a set of tools.
+
+Using these tools, the agent can perform specific and more targeted actions.
+
+One such tool might be a database record-fetching tool, retrieving records from a certain entity.
+
+Another tool could display information about the current day, weather, traffic conditions, etc.
+
+Another tool could list today’s appointments.
+
+In addition, the Assistant knows which **visual snippets (cards)** it can use to present data to the user.
+
+For example:
+
+- A card with information about the person the user is meeting at the next appointment.
+- A card showing a route preview to the next meeting location, with an option to launch external navigation.
+- A card with a quick summary about an account, which upon clicking can display a detailed form.
+
+---
+
+The Assistant consists of a **prompt** that defines:
+
+- How it should act and communicate
+- How it should present data
+- Which tools it should prioritize for which kinds of queries
+- Which snippets should be used to visualize those responses
+
+Resco can predefine several such Assistants.
+
+What is the AI Assistant Platform?
+•	Initial AI Prompt: Each assistant is defined by an initial prompt, setting context and intended behavior.
+•	Configurable Toolset: Consultants declare and assemble a set of tools the AI can call—such as data fetchers, workflow helpers, external integrations, and more.
+•	Reusable UI Snippets: The assistant interacts through a set of visual interface snippets, making responses friendly and actionable.
+•	Multiple Assistant Support: App makers can create multiple specialized assistants in the new “AI Pantheon” section of Woodford or as standalone tools.
+Example Use Cases
+•	CRM Navigator Assistant: Lets users query and visualize CRM data conversationally using fetch tools, entity snippets, and charts.
+•	Field Day Guide Assistant: Guides a mobile worker through their day based on calendar, weather, location, and social profile context—surfacing relevant activities and contact insights.
+
+Strategic Benefits
+•	Modernizes the user experience, removing friction and technical barriers for partners.
+•	Shortens time to value for demos and proofs-of-concept.
+•	Empowers partners to compete with niche solutions through configurable AI rather than code-heavy customizations.
+•	Creates new revenue opportunities through marketplace extensibility.
+
+---
+
+When creating a new Assistant, the first step is to define this prompt.
+
+Users should have access to samples or best practices for guidance.
+
+In the section where the Assistant is defined, the user should be able to add existing tools or define new ones.
+
+Several tools are predefined by Resco, while others can be published and shared by users through a kind of marketplace.
+
+The same applies to snippets.
+
+---
+
+**Creating a new tool** follows a similar approach to building a full business app:
+
+An embedded VSCode with Copilot is available, where the developer can define what the tool should do.
+
+VSCode, in cooperation with the MCP server, creates the tool—typically a small code snippet.
+
+This tool should be testable even outside the Assistant, meaning every tool can be executed in some context to verify its results.
+
+A tool can be assigned snippets that it will use to display results.
+
+The process of creating snippets is the same as for creating tools.
+
+---
+
+Once the Assistant is ready, it can be tested—following the same cycle as for a general application.
+
+In the background, the Assistant app is essentially a specific form of a web app generated by the programming model.
+
+### **Questionnaires**
+
+The user is taken to a list of existing questionnaires, which are actually stored in the backend of the environment the user selected in one of the previous steps.
+
+Alternatively, the user can create a new questionnaire.
+
+When editing an existing questionnaire or creating a new one, the user enters a mode where:
+
+- On the **left side**, they see an editable **tree view** preview of the questionnaire.
+    - Questions can be reordered via drag-and-drop.
+    - Questions can be re-assigned to specific groups.
+- On the **right side**, the editor displays a **prompt feed** where the user can give instructions or questions to an AI agent about how to modify or generate a questionnaire.
+    - In the feed, the user sees how the agent processes information—its reasoning steps and which tools it used.
+
+The main benefit is that the defined questionnaire is shown to the user in a **live preview** in the **center** of the screen.
+
+The preview can be switched between **desktop / tablet / mobile** views.
+
+The questionnaire is directly connected to data from the user’s backend (e.g., Dataverse).
+
+This backend is part of the environment the user selected in a previous step.
