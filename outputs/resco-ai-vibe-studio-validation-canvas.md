@@ -1,260 +1,265 @@
 # Lean Canvas: RESCO AI Vibe Studio
 
-**Date**: 2026-02-06 | **Company**: RESCO | **Version**: 1.0 | **Status**: Initial Validation
+**Date**: 2026-02-06 | **Company**: RESCO | **Version**: 2.0 | **Status**: Validated (Interactive Review)
 
 ---
 
 ## 📋 Executive Summary
 
-**Idea**: Web-based AI-powered development studio (vibe.resco.net) that lets business app makers build, preview, and publish Resco Mobile Apps through natural language prompts and live device preview — replacing the manual Woodford + code workflow
+**Idea**: AI-powered web studio (vibe.resco.net) that lets new prospects and business app makers build complete enterprise mobile apps through natural language — running inside Resco's proven offline-first mobile container with multi-backend support. "Build business apps when others fail."
 
-**Target**: ~15,000 functional consultants and solution architects at Resco/Microsoft Dynamics partners globally, plus enterprise in-house teams
+**Target**: New prospects from MS Dynamics (~5,000 partners), Salesforce (~3,400 partners), and ServiceNow (~1,300 partners) ecosystems who need offline-first mobile apps but face high barriers to entry with current tools
 
-**Economics**: €200-300K Year 1 investment (3-5 FTE build + infrastructure + AI costs), revenue via Resco license uplift (€10/user/month) + potential Vibe Studio subscription tier — TBD - Requires pricing validation
+**Economics**: €185-285K Year 1 (2.5 FTE + LLM + infra), hybrid revenue: $70-100/month Vibe Studio subscription + $10/user/month Resco license (primary). Moderate scenario: ~€363K Year 1 combined revenue. Break-even achievable in Year 1.
 
-**Risk**: Business app makers won't adopt AI-first workflow over established Woodford/manual coding habits; Microsoft's vibe.powerapps.com may make Resco-specific tooling irrelevant
+**Risk**: AI-generated code quality must earn trust on first try with users who can't fix it manually; Microsoft's vibe.powerapps.com may close the offline gap
 
-**Next Action**: Run a 2-week closed beta with 10-15 existing Resco partners building real UIReplacement apps, measuring time-to-first-app vs. current workflow
+**Next Action**: Build MVP (Month 1), closed beta with new prospects on real use cases (Month 2-3), measure time-to-first-app and Resco license conversion
 
 ---
 
 ## 🎯 Problem
 
-### Top 3 Problems
-1. **Slow build-test cycle**: Building Resco mobile apps (UIReplacements, form components) requires manual Woodford configuration + coding + sync + device testing — a cycle that takes hours-to-days per iteration with no live preview capability
-2. **High skill barrier**: Creating custom Resco mobile apps demands deep knowledge of JSBridge APIs, Woodford metadata, and backend schemas (Dataverse/Salesforce/ServiceNow) — most functional consultants lack this, forcing reliance on scarce developers
-3. **No modern developer experience**: Resco app development has no web-based IDE, no AI assistance, no instant preview — falling behind the "vibe coding" trend where competitors offer AI-generated apps in minutes
+### Top 3 Problems (Priority Order)
+1. **High skill barrier blocks new customer acquisition**: Resco Woodford is proprietary and unique — every new prospect must invest significant time mastering it before they can build anything. This blocks growth. New partners/customers who are experienced in Microsoft, Salesforce, or ServiceNow stacks cannot easily adopt Resco. (Source: partner feedback, customer interviews, internal observations)
+2. **Slow build-test-deploy cycle**: Even for those who can build, creating Resco mobile apps requires manual Woodford configuration + coding + sync + device testing — a cycle that takes hours-to-days per iteration with no live preview capability. (Source: partner feedback, experience)
+3. **Competitors offer modern AI-assisted tooling**: vibe.powerapps.com and other platforms now offer AI-generated apps. Resco has no equivalent — risking perception as outdated among new prospects evaluating platforms
 
 ### Existing Alternatives
-- **Woodford** (Resco's config tool): Powerful but complex, no live preview, steep learning curve, requires deep platform expertise
-- **Manual JSBridge coding**: Requires developer skills, tedious debug cycle, no AI context for Resco APIs
-- **ChatGPT/Copilot with uploaded docs**: Hallucinate Resco APIs, no Dataverse schema access, incomplete context
-- **Switch to Power Apps**: Lose Resco's offline-first, multi-backend, and native mobile advantages
+- **Woodford** (Resco's config tool): Powerful but steep learning curve, no live preview, requires deep expertise — works for existing partners, blocks new ones
+- **Power Apps** ($20/user/month): AI-assisted, but Microsoft-only backend, limited offline, no native mobile experience out of the box
+- **Salesforce Mobile SDK / ServiceNow Mobile Studio**: Platform-locked, offline-first remains a "pro-code effort" (Forrester)
+- **Generic AI coding tools** (ChatGPT/Copilot): Hallucinate Resco APIs, no backend schema access, no device preview
 
 ---
 
 ## 👥 Customer Segments
 
-**Primary**: Senior functional consultants and solution architects at Microsoft Dynamics 365 implementation partners (100-500 employees) who build or customize Resco mobile apps for client projects
+**Primary**: New prospects — implementation partners and consultants experienced in Microsoft D365, Salesforce, or ServiceNow who need offline-first mobile app capabilities but don't know Resco Woodford. Vibe Studio is their **entry point** into the Resco ecosystem, skipping Woodford entirely.
 
-**Secondary**: In-house enterprise IT teams maintaining Resco MobileCRM deployments; ISVs building vertical solutions on the Resco platform
+**Secondary**: Existing Resco partners building quick, simple solutions (e.g., external user apps, simple data capture) — use cases that don't require robust workflows or deep Woodford expertise. For complex projects, existing partners use Woodford + MCP server.
 
-**Market size**: ~15,000 Resco-adjacent consultants globally (3,000 MS partners × 175 avg employees × 30% consultants × 10% Resco scope) | 16 active Resco partners (immediate reach, ~80 direct users) | Western Europe and US primarily
+**Market size**:
+- **TAM**: ~10,000+ implementation firms (MS D365 ~5,000 + Salesforce ~3,400 + ServiceNow ~1,300) + tens of thousands of individual consultants | Field service market $5-9B growing 11-16% CAGR (Source: MarketsandMarkets, Mordor Intelligence, Alten Capital)
+- **SAM**: Firms needing offline-first mobile — 60% of field workers need full offline access, only 30% of solutions deliver it (Source: Gartner, Forrester)
+- **SOM (Year 1, moderate)**: ~140 new entries (5x current baseline of 28 new partners/customers per year)
 
-**Reachability**: Resco partner network (16 partners, direct relationships) | Resco events/conferences | Microsoft Dynamics LinkedIn groups | Resco documentation site integration | Partner account managers as channel
+**Reachability**: Resco partner account managers (16 active partners) | vibe.resco.net organic signups (new channel) | Microsoft Dynamics / Salesforce / ServiceNow LinkedIn groups and forums | Resco events and conferences
+
+**Current acquisition baseline**: ~8 new partners/year + ~20 new customers/year = 28 new entry points (without Vibe Studio)
 
 ---
 
 ## 💎 Unique Value Proposition
 
-**"We help business app makers build and deploy Resco mobile apps in minutes instead of days, using AI-assisted code generation with live device preview — no deep coding expertise required."**
+**"Build business apps when others fail. Half the price of Power Apps."**
 
-**High-level concept**: "Like Lovable/Bolt.new, but purpose-built for Resco Mobile Apps — connected to your backend and your mobile project"
+**Full statement**: "We help business app makers build enterprise mobile apps with AI — running inside Resco's proven offline-first container with multi-backend support and enterprise-grade security. No mobile infrastructure to build. No platform lock-in. No Woodford expertise needed."
+
+**High-level concept**: "Like vibe.powerapps.com, but your app works offline, connects to any CRM backend, and costs half the price"
 
 **Why different**:
-- vs **Woodford**: AI-driven, live preview on device, modern web IDE — not manual metadata configuration
-- vs **vibe.powerapps.com**: Native Resco offline-first + multi-backend (Dataverse + Salesforce + ServiceNow) — not locked to Microsoft online-only
-- vs **Lovable/Bolt/v0**: Deep Resco ecosystem integration — understands mobile project metadata, JSBridge APIs, backend schemas via MCP server
-- vs **Manual AI coding** (ChatGPT/Copilot): Zero hallucination on Resco APIs + direct Dataverse schema access + instant on-device preview
+- vs **Power Apps / vibe.powerapps.com**: Offline-first (proven by thousands of customers), multi-backend (not Microsoft-only), $10/user vs $20/user
+- vs **Salesforce Mobile / ServiceNow Mobile**: Platform-agnostic — one app works with any backend, not locked to one ecosystem. Offline-first is easy, not a "pro-code effort"
+- vs **Lovable / Bolt / v0**: Output runs in enterprise-grade Resco mobile container with security, sync, and offline — not a generic web app
+- vs **Woodford**: AI-generated, no learning curve, live preview — accessible to newcomers who've never seen Woodford
+
+**Why now**: "Vibe coding" trend + 60% offline demand vs 30% supply gap + Microsoft pushing AI-assisted development (vibe.powerapps.com) = market window for Resco to capture multi-backend offline-first position before competitors close the gap
 
 ---
 
 ## ✨ Solution
 
-### Top 3 MVP Features (Phase 1 — UIReplacement)
-1. **Environment + AI code generation**: Web workspace at vibe.resco.net — connect to backend (Dataverse/Salesforce/ServiceNow/RescoCloud), select or create a mobile project, describe the app in natural language → AI (Copilot/Claude + Resco MCP server) generates UIReplacement code with real-time progress messages
-2. **Monaco editor with code view**: Generated code displayed in embedded Monaco editor for review, manual editing, and iterative prompting — developer remains in control of the output
-3. **QR-based live device preview + publish**: Scan QR code to get the app on a physical device with auto-refresh on code changes (live dev mode); publish button to push current bundle to production while continuing development
+### Top 3 MVP Features (Phase 1 — UIReplacement, New Customer Acquisition)
+1. **Frictionless onramp**: Register at vibe.resco.net → get 5 free credits → start immediately with RescoCloud sandbox (pre-configured demo backend, zero setup) OR connect own backend (Dataverse, Salesforce, ServiceNow) → create mobile project
+2. **AI-powered full app generation**: Describe app in natural language → AI (Claude/LLM via Resco MCP server, pre-configured by Resco) generates complete UIReplacement code → displayed in Monaco editor with real-time progress → iterate with prompts or manual edits. User focuses on business logic — Resco container provides offline sync, security, and mobile experience automatically
+3. **QR-based live device preview + publish**: Scan QR → app appears on physical device → auto-refreshes on code changes (live dev mode) → publish to production when ready, continue developing
 
 ### Delivery Channel
-Web application at vibe.resco.net (browser-based, no local installation)
+Web application at vibe.resco.net (browser-based, no local installation). AI/LLM provided by Resco's pre-configured environment (user does not bring own API key — credits cover AI costs).
 
 ### NOT in MVP
-- Form Components (visible but disabled in UI)
-- AI Assistants / AI Pantheon (visible but disabled)
-- Questionnaire builder (visible but disabled)
+- Form Components (visible but disabled — Phase 2)
+- AI Assistants / AI Pantheon (visible but disabled — Phase 2+)
+- Questionnaire builder (visible but disabled — Phase 2+)
 - List Components (TBD)
-- Marketplace for tools/snippets
-- Multi-user collaboration
-- PDF/export of generated apps
+- Marketplace for tools/snippets (future)
+- Multi-user collaboration (future)
+- RescoCloud as production backend (demo/trial only in Phase 1)
+- Additional backends: Zoho, HubSpot, others (Year 2-3)
 
 ---
 
 ## 🔑 Unfair Advantage
 
-**Platform owner advantage**: Only Resco can build a deeply integrated Vibe Studio — proprietary access to Woodford metadata APIs, mobile project structure, offlinehtml deployment pipeline, and sync infrastructure. Third parties cannot replicate this integration depth.
+**Platform owner moat**: Only Resco can build deeply integrated AI code generation for its own mobile container — proprietary access to Woodford metadata APIs, mobile project structure, offlinehtml deployment pipeline, sync infrastructure. Third parties cannot replicate this.
 
-**MCP server synergy**: Resco MCP server (already in development/validation) provides the AI context layer — JSBridge documentation, Dataverse schema access, sync log analysis — that makes AI code generation accurate rather than hallucination-prone.
+**Proven mobile container**: Thousands of business customers running Resco offline-first mobile apps in production. The generated code inherits enterprise-grade security, offline sync, and native mobile experience without the developer building any of it.
 
-**Captive distribution**: 16 active partners with direct account manager relationships = built-in beta channel and go-to-market without paid acquisition.
+**Multi-backend (the Microsoft-proof moat)**: Resco works with Dataverse, Salesforce, ServiceNow, and more coming. Microsoft will never support non-Microsoft backends. This is the differentiator that survives even if Microsoft closes the offline gap.
 
-**Reality check**: The platform-owner moat is real but the broader trend favors Microsoft (vibe.powerapps.com). Resco's advantage holds only while offline-first + multi-backend differentiation matters to customers.
+**MCP server synergy**: Already in development — provides the AI context layer (JSBridge docs, backend schemas, sync analysis) that makes code generation accurate. Shared investment with separate initiative.
+
+**Captive distribution**: 16 active partners + direct account manager relationships = built-in beta channel and go-to-market.
 
 ---
 
 ## 📊 Channels
 
-**Primary**: Resco partner network — direct outreach through account managers, partner webinars, and technical enablement sessions
+**Primary**: vibe.resco.net organic signups (new channel — frictionless try with 5 free credits) + Resco partner account managers for direct outreach
 
-**Early adopters**: Existing Resco partners already building UIReplacement apps — they know the pain, have active projects, and can validate immediately
+**Early adopters**: New prospects from MS D365/Salesforce/ServiceNow ecosystems evaluating mobile solutions + existing partners wanting quick simple solutions
 
-**Community/Content**: Resco documentation site (embedded), Microsoft Dynamics LinkedIn groups, Resco annual conference, partner technical forums
+**Community/Content**: "Build an app in 5 minutes" demo videos | Microsoft Dynamics / Salesforce / ServiceNow LinkedIn groups | Resco annual conference | Partner technical forums | Resco documentation site
 
-**Launch strategy**: Month 1 closed beta (10-15 partners) → Month 2-3 open beta (all partners) → Month 4 public launch at vibe.resco.net → Month 6+ community marketplace
+**Launch strategy**: Month 1-2 build MVP → Month 2-3 closed beta (10-15 users, mix of new prospects and existing partners) → Month 4-5 open beta → Month 6 public launch at vibe.resco.net
 
-**Viral loop**: Consultant builds app with Vibe Studio → demos to client → client requests more apps → consultant becomes repeat user → recommends to peers at partner firm
+**Viral loop**: Prospect tries free credits → builds working app → demos to their client → client wants production deployment → Resco license sale → consultant recommends Vibe Studio to peers
 
 ---
 
 ## 💰 Economics
 
-**Revenue model**: Dual-stream
-- **Indirect (primary)**: Free/freemium Vibe Studio drives new Resco Mobile CRM license sales (€10/user/month) — same model as MCP server
-- **Direct (future)**: Vibe Studio Pro subscription for advanced features (multiple environments, team collaboration, priority AI, marketplace access) — TBD - Requires pricing validation
+**Revenue model**: Hybrid (dual-stream)
+- **Direct**: Vibe Studio subscription ~$70-100/month (hybrid: included credits + usage overage for AI turns). 1 credit = 1 AI conversation turn.
+- **Indirect (primary)**: Resco Mobile CRM licenses at $10/user/month when Vibe Studio-built apps go to production. This is the North Star revenue.
+- **Onramp**: 5 free credits at registration (no payment required to try)
 
-**Per-project revenue** (indirect): 20 mobile end-users (avg) × €10/month × 24 months retention = €4,800 per project
+**Pricing advantage**: Resco $10/user/month vs Power Apps $20/user/month — 50% cost advantage, directly addressing the #1 reason Resco loses deals today
 
-**Investment**:
-- Build: 3-5 FTE × 6 months = €150-250K (web platform, Monaco integration, QR preview, MCP integration, backend connectors)
-- AI/LLM costs: €20-40K/year (API calls for code generation — scales with usage)
-- Ongoing maintenance: €80-120K/year (2-3 FTE)
-- **Total Year 1**: €250-400K
+**Per-project revenue** (indirect): 20 users (avg) × $10/month × 24 months retention = $4,800 per project
 
-**Break-even** (on indirect license revenue alone):
-- €300K (midpoint) / €4,800 per project = 63 projects needed
-- At 5 projects/partner × 16 partners = 80 projects achievable in Year 1-2
-- Break-even: ~12-18 months (conservative)
+**Investment** (2.5 FTE team):
+- Build: 2.5 FTE × 6 months = €75-100K
+- LLM API costs: €30-60K/year (scales with usage)
+- Infrastructure: €30-50K/year (RescoCloud sandbox, hosting, preview)
+- Maintenance (post-launch): €50-75K/year (same 2.5 FTE)
+- **Total Year 1**: €185-285K
 
-**Forecast**: 30-50 projects Year 1 (conservative) = €144-240K indirect revenue = net -€60-160K (acceptable platform investment)
+**Revenue forecast (Year 1)**:
 
-**Profitability**: Year 2 if adoption scales + direct subscription revenue added
+| Stream | Conservative (10% deploy) | Moderate (20% deploy) |
+|--------|--------------------------|----------------------|
+| Direct (Vibe Studio subs) | ~€27K | ~€27K |
+| Indirect (Resco licenses) | ~€126K | ~€336K |
+| **Total** | **~€153K** | **~€363K** |
+
+**Break-even**: Moderate scenario profitable in Year 1. Conservative scenario break-even early Year 2.
 
 ---
 
 ## 📈 Key Metrics
 
-**North Star**: Apps deployed to devices via Vibe Studio (measures full value delivery end-to-end)
+**North Star**: Resco license revenue directly attributable to Vibe Studio users — the ultimate proof this tool drives business
 
 **Success criteria**:
-- 3 months (beta): 15 active users, 30 apps created, time-to-first-app < 1 hour
-- 6 months: 50 active users, 150 apps deployed, 20+ projects using Vibe Studio-built apps in production
-- 12 months: 100+ active users, 500 apps, measurable uplift in Resco license pipeline
+- 6 months: 50 registrations, 15 active users, time-to-first-app < 1 hour
+- 12 months: 200 registrations, 40 paid subscribers, 10 production deployments
+- 12 months (North Star): 10 deployments × 20 users × $10/month = **$24,000 ARR in attributable Resco license revenue**
 
 **Supporting metrics**:
-- Time-to-first-app: Target < 30 minutes (vs current days-to-weeks) — primary value proof
-- AI code generation success rate: > 70% of generated code runs without manual fixes
+- Time-to-first-app: < 1 hour (primary activation metric — if > 2 hours, product/UX problem)
+- AI code generation success rate: > 70% runs without manual fixes
+- Free → paid subscription conversion: target > 10%
 - Live preview sessions per user per week: > 5 (engagement depth)
-- Environments connected: Growth rate of backend connections (stickiness signal)
-- Return rate: WAU/MAU > 40% (indicates habit formation)
+- WAU/MAU: > 40% (habit formation)
 
-**Tracking**: Vibe Studio analytics (usage logs) | Partner surveys (quarterly NPS) | Resco license correlation (CRM pipeline data) | Beta user interviews
+**Failure criteria**:
+- 6 months: < 20 registrations or time-to-first-app > 2 hours → product/UX problem
+- 12 months: < 5 production deployments → tool makes demos but not real apps
+- 12 months: $0 attributable Resco license revenue → Vibe Studio doesn't convert to business
+
+**Tracking**: Vibe Studio analytics (usage logs, credit consumption) | Resco CRM pipeline attribution (which licenses came via vibe.resco.net) | Partner surveys (quarterly NPS) | User interviews
 
 ---
 
 ## 🚨 Critical Risks
 
-**Riskiest assumption**: Business app makers will adopt an AI-first workflow for Resco app development instead of sticking with Woodford and manual coding. This requires a significant behavior change — and the primary users (functional consultants) are not developers who naturally gravitate toward IDEs and AI coding tools.
+**Riskiest assumption**: AI-generated Resco code will be good enough on first try that a new prospect — who doesn't know Resco and can't fix code manually — trusts it and keeps going. You get one shot at first impression.
 
 **Top 5 Risks**:
 
-1. **Adoption risk (HIGHEST)**: Functional consultants prefer Woodford's familiar drag-and-configure approach over a code-generating AI tool → Low usage despite investment
-   - *Mitigation*: Closed beta with 10-15 partners on real projects; measure time savings and preference; iterate on UX for non-developer persona
+1. **AI code quality (HIGHEST)**: Generated UIReplacement code doesn't work reliably → new prospects (who can't debug Resco code) lose trust on first attempt and never return
+   - *Mitigation*: MCP server is mature enough today (confirmed). Continuous iterative improvement on quality. Monaco editor allows manual fixes as fallback. Extensive testing before beta.
 
-2. **Competition risk (HIGH)**: Microsoft launches/expands vibe.powerapps.com with offline and multi-backend capabilities → Resco's differentiation narrows and partners migrate
-   - *Mitigation*: Ship fast (first-mover in Resco ecosystem); position as complementary to PowerApps for offline/multi-backend scenarios; monitor Microsoft roadmap quarterly
+2. **vibe.powerapps.com competition (VERY HIGH)**: Microsoft expands AI app generation with improved offline and lower pricing → Resco's two main differentiators (offline-first, price) weaken
+   - *Mitigation*: Speed to market. If Microsoft closes the gap: **go deeper on multi-backend** (the one thing Microsoft will never do) **+ expand Vibe Studio capabilities** (AI agents, components, questionnaires) to widen feature moat.
 
-3. **AI quality risk (HIGH)**: Generated Resco UIReplacement code is unreliable, produces runtime errors, or fails on edge cases → Users lose trust after first attempt
-   - *Mitigation*: Invest in MCP server quality (JSBridge doc completeness, schema accuracy); extensive testing with real projects before beta; allow manual code editing as fallback
+3. **New prospect conversion (HIGH)**: 5x growth assumption (28 → 140 entries/year) is unproven. Organic discovery at vibe.resco.net is a new channel with zero baseline data.
+   - *Mitigation*: Track registration source from day 1. Invest in "build an app in 5 minutes" demo content. Leverage SF/SN community channels.
 
-4. **Scope risk (MEDIUM)**: UIReplacement-only MVP is too narrow — partners need Form Components, AI Assistants, and Questionnaires to see full value → "Nice demo but not useful for my real work"
-   - *Mitigation*: Validate with beta users whether UIReplacement alone drives adoption; fast-follow with Form Components in Phase 2; show disabled features to signal roadmap commitment
+4. **Demo-to-production gap (MEDIUM)**: Users build cool demos with free credits but never deploy to production → $0 North Star revenue
+   - *Mitigation*: Design onboarding flow that guides toward production deployment. Track funnel from registration → app created → app on device → production publish → license purchase.
 
-5. **Technical complexity risk (MEDIUM)**: Multi-backend + live preview + MCP + Monaco + QR device sync = significant integration surface area → Delays, bugs, unstable experience
-   - *Mitigation*: Start with single backend (Dataverse) in beta; add Salesforce/ServiceNow post-validation; limit initial scope to proven tech stack
+5. **LLM cost economics (MEDIUM)**: If users need 50+ AI turns per working app, the $70-100/month subscription may not cover LLM costs per user
+   - *Mitigation*: Track average turns-per-app in beta. Adjust credit pricing/included allowance based on real data. Tokenomics TBD — Requires validation.
 
 **Key unknowns**:
-- Will functional consultants (non-developers) use a code editor-based tool? — TBD - Requires validation
-- What's the actual time savings vs. Woodford for real-world projects? — TBD - Requires measurement
-- Will AI-generated Resco code quality be good enough? — TBD - Requires testing with MCP server
-- Microsoft's timeline for expanding vibe.powerapps.com — TBD - External dependency
-- Pricing tolerance for a direct subscription tier — TBD - Requires validation
+- Will new prospects (not existing Resco users) adopt this tool? — TBD - Core bet
+- Turns-per-working-app (drives LLM cost economics) — TBD - Requires measurement
+- Organic signup rate at vibe.resco.net — TBD - New channel, zero baseline
+- Microsoft's timeline for vibe.powerapps.com offline/multi-backend expansion — TBD - External dependency
+- Conversion rate from free credits to paid subscription — TBD - Requires validation
 
 **Assumptions to validate**:
-- 15K addressable market (estimation, not validated)
-- Functional consultants will adopt a code-editor workflow (behavior change)
-- MCP server provides sufficient context for accurate code generation
+- ~10,000+ addressable firms across three ecosystems (research-based, not customer-validated)
+- New prospects will use an AI code editor workflow (behavior assumption)
+- MCP server provides sufficient context for first-try-accurate code generation (technically mature, user validation needed)
 - Live preview via QR code is technically reliable across platforms
-- 20 users per project average (varies by project type)
-- Partners will promote Vibe Studio to their consultants
-- AIReplacement-only MVP is sufficient for initial traction
-- RescoCloud can serve as a "no backend" option for trial users
+- 5 free credits is enough to build a convincing first app
+- $70-100/month is acceptable pricing for this segment
+- $10/user/month Resco license wins against $20/user Power Apps
+- RescoCloud sandbox works as frictionless demo backend
+- 20% of entries convert to production deployments (moderate scenario)
 
 ---
 
 ## 🎬 Next Steps
 
-**THIS MONTH: Closed beta with 10-15 Resco partners building real UIReplacement apps**
+**MONTH 1-2: Build MVP prototype**
+- Dataverse + ServiceNow backend support
+- UIReplacement generation via MCP server + Claude/LLM
+- Monaco editor with iterative prompting
+- QR-based live device preview
+- RescoCloud sandbox for frictionless trial
+- Registration + 5 free credits
 
-**Setup**:
-- Recruit: 5 internal Resco + 10 from top partner firms (select partners already building UIReplacements)
-- Provide: Working prototype with Dataverse backend support + Monaco editor + QR preview
-- Task: Each participant builds one real UIReplacement app for an actual client project
-- Duration: 2 weeks active usage
-
-**Measure**:
-- Time-to-first-app (target: < 1 hour vs. current days)
-- AI code generation accuracy (target: > 70% runs without manual fix)
-- Completion rate (how many finish a working app?)
-- Would use again? (NPS / preference vs. Woodford)
-- Live preview reliability (QR success rate across iOS/Android)
+**MONTH 2-3: Closed beta with 10-15 users**
+- Mix of new prospects (primary — test the acquisition thesis) AND existing partners (secondary — test quick-solution use case)
+- Each builds one real UIReplacement app
+- **Measure**: time-to-first-app, AI accuracy, completion rate, NPS, license intent
 
 **Decision criteria**:
-- ✅ **10+ users complete a working app, > 50% prefer Vibe Studio over Woodford**: Proceed to open beta Month 3
-- ⚠️ **5-9 users complete, mixed feedback**: Identify friction points (is it UX? AI quality? scope?), iterate, retest
-- ❌ **< 5 users complete or strong Woodford preference**: Reassess — either pivot UX away from code editor or scope down to "AI-assisted Woodford" rather than full Vibe Studio
+- ✅ **10+ users complete a working app, time-to-first-app < 1 hour, > 3 express intent to deploy to production**: Proceed to open beta
+- ⚠️ **5-9 complete, mixed feedback**: Identify friction (UX? AI quality? scope?), iterate, retest
+- ❌ **< 5 complete or no production intent**: Reassess — pivot UX or scope
 
-**Timeline**:
-- Month 1: Build MVP prototype (Dataverse + UIReplacement + Monaco + QR preview)
-- Month 2: Closed beta (10-15 partners)
-- Month 2 end: Go/no-go decision based on beta results
-- Month 3-4: Open beta (all partners) + iterate based on feedback
-- Month 5-6: Public launch at vibe.resco.net + Phase 2 planning (Form Components)
+**MONTH 4-5**: Open beta (all partners + public waitlist)
+**MONTH 6**: Public launch at vibe.resco.net
+**MONTH 6-12**: Scale to 200 registrations, 40 paid, 10 production deployments
 
-**Why this matters**: The entire bet rests on whether non-developer business app makers will adopt an AI+code workflow. If they won't use it in a supported beta with real projects, they won't use it at scale. Validate the behavior change BEFORE building out Form Components, AI Assistants, and marketplace.
-
----
-
-## 📝 Key Assumptions
-
-- ~15,000 addressable Resco-adjacent consultants globally (estimation, not validated)
-- Functional consultants will use a code editor + AI workflow (significant behavior change — TBD)
-- Resco MCP server provides sufficient context for accurate code generation (depends on MCP maturity)
-- Live device preview via QR code is technically reliable (untested at scale)
-- UIReplacement-only MVP is sufficient to demonstrate value (may be too narrow)
-- 20 mobile end-users per project on average (varies significantly by project type)
-- Partners will actively promote Vibe Studio to their consulting teams
-- AI/LLM costs remain economically viable at scale (~€20-40K/year estimate)
-- Microsoft does not expand vibe.powerapps.com to cover offline + multi-backend (external risk)
-- "Try for free without registration" lowers barrier enough for trial adoption
+**Why this matters**: The entire bet is that **lowering the barrier to entry with AI will unlock the ~10,000 implementation firms** currently blocked by Woodford's learning curve. If a new prospect can go from "never heard of Resco" to "working app on my phone" in under an hour, Resco's addressable market expands dramatically. Validate this before investing in Phase 2 features.
 
 ---
 
 ## ⚠️ Reality Check
 
-**This is a platform play with a real moat but a real risk.** Unlike the MCP server (low cost, fast launch), Vibe Studio requires significant investment (€250-400K Year 1) and depends on a behavior change from consultants who may prefer what they know. The moat is genuine — only Resco can build this level of integration — but Microsoft's vibe.powerapps.com signals that the "AI app builder" space is being commoditized at the platform level.
+**This is a customer acquisition play with real strategic value and manageable cost.** At €185-285K Year 1 with 2.5 FTE, the investment is moderate. The moderate revenue scenario (€363K) makes it profitable in Year 1. Even the conservative scenario (€153K) breaks even early Year 2. The risk profile is acceptable.
 
 **Success depends on**:
-1. Non-developer consultants actually adopting an AI+code workflow (the fundamental bet)
-2. MCP server delivering accurate enough code generation to build trust on first use
-3. Live preview working reliably enough to feel "magical" vs. the current sync-and-test cycle
-4. Microsoft not closing the offline/multi-backend gap before Resco establishes Vibe Studio adoption
+1. AI code quality earning trust on first try with users who can't fix it manually
+2. New prospects actually discovering and trying vibe.resco.net (organic channel is unproven)
+3. Demo users converting to production deployments and Resco licenses (the North Star)
+4. Staying ahead of Microsoft before they close the offline/multi-backend gap
 
-**If Microsoft expands vibe.powerapps.com to offline + multi-backend**: Pivot Vibe Studio to become the "Resco layer" on top of Power Apps — an embedded experience rather than a standalone platform. The AI assistance + Resco-specific context remains valuable even if the hosting platform changes.
+**If Microsoft closes the offline gap**: Go deeper on multi-backend (Salesforce, ServiceNow, Zoho, HubSpot — the one moat Microsoft will never cross) + expand Vibe Studio capabilities (AI agents, components, questionnaires).
 
-**If adoption fails (consultants reject code editor)**: Consider pivoting to "AI-assisted Woodford" — keep the AI and live preview but wrap it in Woodford's familiar drag-and-configure UX instead of a Monaco editor. The underlying AI value may still hold even if the IDE form factor doesn't.
+**If AI quality isn't good enough**: Continuously iterate. MCP server is mature — the gap is likely in prompt engineering and template quality, not infrastructure. This is improvable.
 
-**Remember**: The goal is making Resco app development 10x faster and accessible to non-developers. If Vibe Studio achieves that, it becomes Resco's primary competitive moat against Power Apps. If it doesn't, the investment is significant. Validate fast, validate cheap.
+**If new prospects don't convert**: Consider whether the problem is discovery (marketing), activation (UX), or value (the tool doesn't solve a real enough problem). Each has a different fix.
+
+**Remember**: "Build business apps when others fail. Half the price of Power Apps." — If Vibe Studio delivers on this promise, it becomes Resco's primary growth engine. The $10/user pricing + AI-assisted development directly addresses both reasons Resco loses deals today (price and complexity).
 
 ---
 
-**Created**: 2026-02-06 | **Next Review**: 2026-02-20 (post-beta planning) | **Owner**: RESCO Product Team
+**Created**: 2026-02-06 | **Validated**: 2026-02-06 (interactive 8-skill review) | **Next Review**: 2026-03-06 | **Owner**: RESCO Product Team
