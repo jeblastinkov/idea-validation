@@ -11,7 +11,7 @@ User Input
     ↓
 System Prompt + Behavior Guidelines
     ↓
-Skill Progression (1→2→3→4→5→6→7→8→9)
+Skill Progression (1→2→3→4→5→6→7→8→9→10*)
     ↓
 Output Generation
     ↓
@@ -132,10 +132,13 @@ while current_skill <= 9:
 **When**: After skill 9 completes and user confirms
 
 **Process**:
-1. Load template: `/templates/lean-canvas-template.md`
+1. Load template based on user preference:
+   - `/templates/lean-canvas-template.md` (default)
+   - `/templates/opportunity-assessment-template.md` (SVPG)
+   - `/templates/product-brief-template.md` (product brief — Skill 10)
 2. Fill template with `collected_data`
 3. Mark unknowns as "TBD - Requires validation"
-4. Generate filename: `[sanitized-idea-name]-validation-canvas.md`
+4. Generate filename: `[sanitized-idea-name]-validation-canvas.md` or `-product-brief.md`
 5. Save to: `/outputs/[filename]`
 6. Return download link to user
 
@@ -254,7 +257,11 @@ Implementation:
 Support both Lean Canvas and Opportunity Assessment:
 
 ```python
-if user_preferences['framework'] == 'opportunity_assessment':
+if user_preferences['output_format'] == 'product_brief':
+    template = load_file('/templates/product-brief-template.md')
+    # Can run after full validation (uses collected data) or standalone
+    skill = load_file('/agent/skills/10-product-brief.md')
+elif user_preferences['framework'] == 'opportunity_assessment':
     template = load_file('/templates/opportunity-assessment-template.md')
     skills = load_opportunity_skills()
 else:
@@ -468,7 +475,7 @@ For large conversations:
 
 - [ ] Load system prompt
 - [ ] Load behavior guidelines
-- [ ] Load all 9 skills
+- [ ] Load all 10 skills (9 core + 1 optional product brief)
 - [ ] Initialize conversation state
 - [ ] Implement skill progression logic
 - [ ] Add output generation

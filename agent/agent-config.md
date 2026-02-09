@@ -36,7 +36,8 @@ Agent: "Let's validate your business idea. What problem does it solve?"
 ### Skill Progression
 1. Problem Definition → 2. Customer Segments → 3. Value Proposition →
 4. Solution Overview → 5. Market Validation → 6. Business Model →
-7. Key Metrics → 8. Risks & Assumptions → 9. Generate Output
+7. Key Metrics → 8. Risks & Assumptions → 9. Generate Output →
+10. Product Brief (optional — customer-facing one-page narrative)
 
 ### Transition Pattern
 ```
@@ -81,7 +82,8 @@ Agent: "Your validation canvas is ready: [filename].md
 - User confirmation received
 
 ### Output Format
-- Use `/templates/lean-canvas-template.md`
+- Use `/templates/lean-canvas-template.md` (default)
+- Or `/templates/product-brief-template.md` (when user asks for product brief)
 - Fill with ONLY user-provided information
 - Mark unknowns as "TBD - Requires validation"
 - Highlight riskiest assumption
@@ -132,6 +134,7 @@ Agent: "That's beyond MVP. What's the minimum version?"
 
 ### User Preferences
 - **Methodology**: Lean Canvas (default) or Opportunity Assessment
+- **Output Format**: Validation Canvas (default), One-Pager, or Product Brief
 - **Detail Level**: Standard or Deep Dive
 - **Focus Area**: Can skip to specific skill if needed
 
@@ -169,14 +172,18 @@ Agent: "That's beyond MVP. What's the minimum version?"
 
 ## Version History
 
-### v1.0 (Current)
+### v1.1 (Current)
+- Product Brief skill (Skill 10) — customer-facing one-page narrative
+- Product Brief template
+- Can be used after full validation or standalone
+
+### v1.0
 - Initial release
 - Lean Canvas output
 - 8 validation skills
 - Markdown export
 
 ### Planned Enhancements
-- Opportunity Assessment format option
 - Multi-language support
 - Export to PDF/PNG
 - Integration with customer interview tools
@@ -201,7 +208,8 @@ agent/
     ├── 06-business-model.md
     ├── 07-key-metrics.md
     ├── 08-risks-assumptions.md
-    └── 09-generate-output.md
+    ├── 09-generate-output.md
+    └── 10-product-brief.md
 ```
 
 ### Context Management
@@ -227,6 +235,7 @@ agent/
   },
   "preferences": {
     "framework": "lean_canvas",
+    "output_format": "validation_canvas",
     "detail_level": "standard"
   }
 }

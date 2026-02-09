@@ -20,16 +20,16 @@ Start: Do you have a product in market?
 
 ## Framework Comparison
 
-| Aspect | Lean Canvas | Opportunity Assessment | Socratic Questioning | Value Proposition Canvas |
-|--------|-------------|----------------------|---------------------|-------------------------|
-| **Best For** | New ventures | Existing products | Any idea validation | Customer research |
-| **Output** | Business model | Go/No-go decision | Deeper thinking | Value/fit validation |
-| **Time** | 20-60 min | 30-90 min | Integrated | 30-60 min |
-| **Stage** | Pre-product | Post-product | Any stage | Pre/post product |
-| **Focus** | Business model | Opportunity viability | Critical thinking | Customer needs |
-| **Format** | 1-page canvas | 10 questions | Question methodology | 2-sided canvas |
-| **Origin** | Ash Maurya | Marty Cagan (SVPG) | Socrates/Philosophy | Alexander Osterwalder |
-| **Role** | Framework | Framework | Methodology | Framework |
+| Aspect | Lean Canvas | Opportunity Assessment | Product Brief | Socratic Questioning | Value Proposition Canvas |
+|--------|-------------|----------------------|---------------|---------------------|-------------------------|
+| **Best For** | New ventures | Existing products | Pitch / alignment | Any idea validation | Customer research |
+| **Output** | Business model | Go/No-go decision | 1-page narrative | Deeper thinking | Value/fit validation |
+| **Time** | 20-60 min | 30-90 min | 10-20 min | Integrated | 30-60 min |
+| **Stage** | Pre-product | Post-product | Pre/post launch | Any stage | Pre/post product |
+| **Focus** | Business model | Opportunity viability | Customer story | Critical thinking | Customer needs |
+| **Format** | 1-page canvas | 10 questions | ~300 word prose | Question methodology | 2-sided canvas |
+| **Origin** | Ash Maurya | Marty Cagan (SVPG) | Bezos/Jobs style | Socrates/Philosophy | Alexander Osterwalder |
+| **Role** | Framework | Framework | Output format | Methodology | Framework |
 
 ## Lean Canvas
 
@@ -151,11 +151,40 @@ Start: Do you have a product in market?
 - User is evaluating features, not full business
 - User explicitly requests SVPG approach
 
+**Suggest Product Brief when:**
+- User needs a customer-facing pitch document
+- User wants to align team (CEO to engineer) on the product story
+- User asks to "prepare a product brief"
+- After validation is complete and user needs a narrative version
+- User wants a jargon-free, plain-language description
+
 **Suggest Value Proposition Canvas when:**
 - User needs customer research focus
 - Problem/solution fit is unclear
 - User wants jobs-to-be-done approach
 - Deeper customer psychology needed
+
+## Product Brief
+
+### Strengths
+- Forces ruthless simplicity (300 words, zero jargon)
+- Customer-obsessed narrative anyone can understand in 3 minutes
+- Compelling storytelling structure (Villain → Hero → Magic)
+- Can be generated after full validation or standalone
+- Ideal for team alignment, investor conversations, and marketing input
+
+### Limitations
+- Not a business model (no economics, metrics, or risk analysis)
+- Intentionally omits competitive landscape details
+- Not a substitute for full validation canvas
+- Requires clear product positioning to write well
+
+### Best Use Cases
+- Team alignment (from CEO to engineer)
+- Investor pitch preparation
+- Marketing brief input
+- Product launch narrative
+- Internal communication of product vision
 
 ## Socratic Questioning: A Universal Methodology
 
@@ -262,12 +291,15 @@ Modern product teams often use:
 | Feature prioritization | Opportunity Assessment | Impact/Effort matrix |
 | Pre-product validation | Lean Canvas | Pretotyping |
 | Post-product growth | Opportunity Assessment | Experimentation |
+| Team/investor alignment | Product Brief | Lean Canvas |
+| Product launch narrative | Product Brief | Value Prop Canvas |
 
 ---
 
 ## Agent Implementation
 
 **Default**: Lean Canvas
-**Option**: Flag if Opportunity Assessment might be better
+**Option**: Flag if Opportunity Assessment or Product Brief might be better
+**Product Brief**: Available after validation or standalone — triggered by "prepare product brief"
 **Flexibility**: Adapt based on user context
 **Output**: Always one-page, markdown, downloadable
