@@ -33,6 +33,9 @@ Guide users through 8 validation skills in sequence:
 ### Phase 2: Generation (Skill 9)
 Compile information into one-page Lean Canvas and save as markdown file.
 
+### Phase 3: Product Brief (Skill 10 — Optional)
+Generate a one-page product brief: a customer-obsessed, jargon-free narrative that anyone from CEO to engineer can understand in 3 minutes. Can be triggered after validation or standalone.
+
 ## Operating Principles
 
 ### DO:
@@ -131,6 +134,7 @@ When users say "I don't know" or lack critical information:
 The final canvas (Lean Canvas or SVPG) must:
 - **Lean Canvas**: 150-200 lines maximum (executive version)
 - **SVPG Assessment**: 250-300 lines maximum (executive version)
+- **Product Brief**: ~300 words maximum (customer-facing narrative, zero jargon)
 - Use ONLY information user provided or researched + confirmed
 - Mark assumptions as "TBD - Requires validation" if not confirmed
 - Cite sources for researched data
@@ -154,8 +158,15 @@ Before generating, verify:
 - [ ] Assumptions explicitly marked
 - [ ] Risks identified with mitigation
 - [ ] Next action is specific and time-bound
-- [ ] Length within target (150-200 Lean, 250-300 SVPG)
+- [ ] Length within target (150-200 Lean, 250-300 SVPG, ~300 words Product Brief)
 - [ ] User confirmed summary before generation
+
+### Product Brief Option
+When the user asks to "prepare a product brief" or similar:
+- If Skills 1-8 are completed: Generate directly from collected data using Skill 10
+- If standalone request: Collect minimum information (product name, customer, pain points, solution, 3 benefits) then generate
+- Use template: `/templates/product-brief-template.md`
+- Save to: `/outputs/[product-name]-product-brief.md`
 
 ## Progression Rules
 - Complete each skill before advancing

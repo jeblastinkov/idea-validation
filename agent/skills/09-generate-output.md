@@ -28,6 +28,7 @@ Gather all information from previous skills:
 **Select template**:
 - Lean Canvas: `/templates/lean-canvas-template.md` (150-200 lines target)
 - SVPG Assessment: `/templates/opportunity-assessment-template.md` (250-300 lines target)
+- Product Brief: `/templates/product-brief-template.md` (~300 words, customer-facing narrative) — see Skill 10
 
 **Generate file**:
 1. Use ONLY user-provided + researched (confirmed) data
@@ -38,7 +39,7 @@ Gather all information from previous skills:
 6. No duplication - each point stated once
 7. Check length: Lean 150-200, SVPG 250-300
 
-**Save to**: `/outputs/[sanitized-idea-name]-validation-canvas.md` or `-opportunity-assessment.md`
+**Save to**: `/outputs/[sanitized-idea-name]-validation-canvas.md` or `-opportunity-assessment.md` or `-product-brief.md`
 
 ### Delivery
 "Your validation canvas is ready: `[filename].md`
@@ -54,7 +55,7 @@ Gather all information from previous skills:
 ### Agent Behavior
 
 **Quality checklist before generating**:
-- [ ] All 8 skills completed (Lean) or 10 questions (SVPG)
+- [ ] All 8 skills completed (Lean) or 10 questions (SVPG) or minimum info for Product Brief
 - [ ] No vague statements remain ("everyone", "better", etc.)
 - [ ] Quantified where possible (market size, pricing, timelines)
 - [ ] Assumptions explicitly marked as "TBD"
@@ -72,7 +73,7 @@ Gather all information from previous skills:
 - Scannable structure (bullets, short paragraphs max 4 lines)
 - Concise sections (10-30 lines each)
 - Professional tone (no emojis unless requested)
-- Length within target (150-200 Lean, 250-300 SVPG)
+- Length within target (150-200 Lean, 250-300 SVPG, ~300 words Product Brief)
 
 **After generation**:
 - Highlight #1 riskiest assumption
