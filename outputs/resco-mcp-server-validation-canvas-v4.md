@@ -1,12 +1,12 @@
 # Lean Canvas: Resco MCP Server
 
-**Date**: 2026-02-08 | **Version**: 4.0 | **Status**: Pre-Launch — Validated
+**Date**: 2026-02-08 | **Version**: 4.1 | **Status**: Pre-Launch — Updated for Full Toolset
 
 ---
 
 ## Executive Summary
 
-**What**: Free MCP server giving AI coding assistants access to Resco JSBridge docs + client Dataverse schemas. Eliminates hallucinations when building Resco apps.
+**What**: Free MCP server giving AI coding assistants 63 tools to read, build, and configure Resco Mobile CRM projects — forms, views, workflows, sync filters, home screen navigation, offline HTML files, and more. Eliminates hallucinations and replaces manual clicking in Woodford.
 
 **Who**: ~15,000 senior functional consultants at MS implementation partners globally.
 
@@ -22,9 +22,10 @@
 
 ## Problem
 
-1. AI assistants hallucinate Resco code — missing JSBridge docs
-2. Consultants waste hours searching Resco Wikipedia and troubleshooting sync
-3. AI tools can't access client Dataverse schemas — manual lookups, frequent errors
+1. AI assistants hallucinate Resco code — missing JSBridge docs and platform awareness
+2. Consultants waste hours clicking through Woodford UI to configure forms, views, workflows, and navigation
+3. AI tools can't access client Dataverse schemas or live project structure — manual lookups, frequent errors
+4. Sync troubleshooting is slow and opaque without AI-assisted log analysis
 
 **Alternatives**: Manual wiki search (slow) | ChatGPT + uploaded docs (still hallucinates) | Hire devs (expensive) | Switch to Power Platform (lose offline-first)
 
@@ -42,23 +43,33 @@
 
 ## Value Proposition
 
-**"AI assistants that actually know Resco JSBridge and your Dataverse structure."**
+**"AI that doesn't just know Resco — it builds your entire app for you."**
 
-- vs Manual ChatGPT: Live Dataverse connection + full docs = zero hallucination
-- vs vibe.powerapps.com: Only solution for Resco ecosystem
-- vs Manual search: Automatic AI context, no switching
+- vs Manual ChatGPT: Live project connection + full docs + 63 tools = zero hallucination + actual configuration
+- vs vibe.powerapps.com: Only complete AI-driven configuration solution for the Resco ecosystem
+- vs Manual Woodford clicks: Describe what you want in plain language; AI configures forms, views, workflows, and navigation directly
+- vs Manual search: Automatic AI context across the full Resco surface area, no switching
 
 ---
 
-## Solution (MVP — 3 tools)
+## Solution (63 tools across 8 categories)
 
-1. **JSBridge doc search** — AI-accessible Resco Wikipedia
-2. **Dataverse schema access** — List entities/tables/fields from client org
-3. **Sync log analysis** — AI-assisted troubleshooting
+| Category | # Tools | Capability |
+|----------|---------|------------|
+| **Form Tools** | 9 | Add/remove/reorder fields, tabs, buttons, separators on entity forms |
+| **View & List Tools** | 7 | Configure columns, FetchXML filters, sort order, allowed fields |
+| **Workflow & Business Logic** | 8 | Create, validate, explain, and deploy event-driven workflows on forms and views |
+| **Data Sync & Filtering** | 6 | Manage FetchXML offline sync rules; read and analyze sync logs |
+| **Home Screen & Navigation** | 5 | Add/remove/reorder groups and menu items on app home screen |
+| **Configuration & Project** | 15+ | Read entity configs, themes, enabled entities, full project settings |
+| **File & Structure Tools** | 10 | Read/write offline HTML files; parse dashboards, maps, calendars, hubs |
+| **Initialization & Utilities** | 4+1 | Tool setup per session + JSBridge doc search (public, no auth required) |
 
-**Delivery**: MCP server for Claude, Copilot Studio, other MCP tools. Published to Copilot Studio marketplace.
+**Authentication**: Token-based (`https://agent-dev.resco.net/mcp?token={TOKEN}`), scoped to Dataverse project role.
 
-**NOT in MVP**: Workflow builder | Code templates | Multi-org | Analytics | Mobile preview | Code review
+**Delivery**: MCP server for Claude, Copilot Studio, other MCP-compatible tools. Published to Copilot Studio marketplace.
+
+**NOT in scope**: Multi-org switching | Analytics dashboard | Mobile live preview | Automated code review pipeline
 
 ---
 
@@ -67,8 +78,9 @@
 **Strengths**:
 - MCP ecosystem mature: 97M+ monthly SDK downloads, 5,800+ servers, enterprise-deployed. Production-ready.
 - Copilot Studio marketplace: native MCP support, real distribution channel.
+- 63-tool full coverage: not just read/search — AI can actually build and configure Resco apps end-to-end.
 - Low cost, high strategic value: cheapest way to accelerate Resco adoption + build Vibe Studio foundation.
-- Synergy: MCP provides the AI context layer Vibe Studio needs for code generation.
+- Synergy: MCP provides the AI context layer Vibe Studio needs for both code generation and app configuration.
 
 **Moat**: First-mover only. No tech moat — easily replicable. Speed is the advantage. Even if commoditized, wins if it accelerates Resco adoption and builds Vibe Studio infrastructure.
 
@@ -152,4 +164,4 @@ Profitable Year 2-3 as adoption scales to 11+ projects/year.
 
 ---
 
-*Created: 2026-01-21 | Updated: 2026-02-09 (condensed executive version) | Next Review: 2026-03-01 | Owner: RESCO Product Team*
+*Created: 2026-01-21 | Updated: 2026-03-09 (v4.1 — expanded to 63-tool full toolset) | Next Review: 2026-04-01 | Owner: RESCO Product Team*
