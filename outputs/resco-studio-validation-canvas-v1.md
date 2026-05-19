@@ -1,6 +1,6 @@
 # Lean Canvas: Resco Studio
 
-**Date**: 2026-05-19 | **Version**: 1.0 | **Status**: Initial Validation
+**Date**: 2026-05-19 | **Version**: 1.1 | **Status**: Initial Validation
 
 ---
 
@@ -34,13 +34,41 @@
 
 ## Customer Segments
 
-**Primary**: IT Managers at Resco enterprise customers — responsible for configuring and building Resco mobile apps, managing field service logic, and maintaining integrations with Dynamics/Salesforce/ServiceNow.
+**Primary — App Maker (IT Manager)**: IT Managers at Resco enterprise customers — build and configure Resco mobile apps, manage field service logic, maintain integrations with Dynamics/Salesforce/ServiceNow. Uses Vibe Studio, MCP Hub, Notes.
 
-**Secondary**: Field Service Operations Managers — use AI Forms/Questionnaire builder to create dynamic checklists for field workers (v1 adjacent, primary in v2).
+**Secondary — Field Service Manager**: Operations/Field Service Managers — responsible for field worker processes, create dynamic forms and questionnaires for technicians. Uses AI Forms Builder. (Active in v1, primary focus in v2.)
+
+**Tertiary — IT Admin**: IT/System Administrators — manage organizational access, licenses, billing, compliance. Uses Admin Portal. (v2.)
 
 **Market size**: 550 enterprise customers × 1–4 IT Managers = **550–2,200 direct users** (installed base). Broader TAM: enterprise field service management software market — TBD, requires research.
 
 **Reachability**: Direct through Resco CSM/account management team | Resco partner network | Resco community and documentation channels.
+
+---
+
+## Persona Experiences
+
+Resco Studio is one platform with **three distinct experiences** — each persona lands in a tailored workspace:
+
+### Experience 1: App Maker (IT Manager)
+**Entry**: Vibe Studio workspace
+- **App Builder** — AI chat that reads the full Resco project (data model, workflows, entities) and builds or modifies mobile app components via natural language. Produces working home replacements, list views, detail forms, custom actions.
+- **Home Replacement** — dedicated AI-assisted canvas for designing and deploying custom Resco home screens; reusable UI component library built on real customer patterns.
+- **MCP Hub** — setup, configure, and manage MCP servers connected to Resco tools; add 3rd party MCPs per tool.
+- **Notes** — Notebook LLM that works across the entire project; surfaces insights, suggests optimizations, answers "why does this workflow work this way?" questions based on project context.
+
+### Experience 2: Field Service Manager
+**Entry**: Forms Studio workspace
+- **AI Questionnaire Builder** — create, modify, and publish Resco questionnaires and inspection forms via natural language. No Questionnaire Designer needed.
+- **Template Library** — pre-built questionnaire templates for common field service scenarios (safety inspections, work order completion, asset surveys); editable via AI.
+- Scoped view: no access to code/app config, no Vibe Studio — simplified, role-appropriate UI.
+
+### Experience 3: IT Admin *(v2)*
+**Entry**: Admin Portal workspace
+- **External User Management** — view all users across the organization, assign/unassign Resco licenses, manage access by org unit.
+- **Sync Log Analyzer** — diagnose mobile app sync failures; filter by device, user, date, error type.
+- **AI Usage Monitoring** — track AI credit consumption per user and team.
+- **Billing & Licensing** — manage Resco license tiers, view invoices, adjust seat counts.
 
 ---
 
