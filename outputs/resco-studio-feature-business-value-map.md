@@ -1,6 +1,6 @@
 # Resco Studio: Feature → Business Value Map
 
-**Date**: 2026-05-19 | **Version**: 1.0 | **Owner**: Resco Product Team
+**Date**: 2026-05-19 | **Version**: 1.1 | **Owner**: Resco Product Team
 **Purpose**: Map each Studio capability to persona, business problem, revenue impact, and priority — to guide v1/v2/v3 sequencing decisions.
 
 ---
@@ -29,7 +29,8 @@ Each capability is scored across four dimensions:
 | 3 | Notes (Notebook LLM) | App Maker | v1 | Retention + Upsell | Indirect | **H** | M | **P1** |
 | 4 | AI Forms / Questionnaire Builder | Field Service Mgr | v1 | Acquisition + Retention | Direct | **H** | M | **P1** |
 | 5 | MCP Hub | App Maker | v1 | Acquisition + Upsell | Direct | M | M | **P2** |
-| 6 | External User Management | IT Admin | v2 | Retention + Efficiency | Indirect | M | M | **P2** |
+| 6a | External Data Collection (non-licensed users) | External parties | v2 early | **Acquisition (new market)** | **Direct** | **H** | M | **P1** ⬆️ |
+| 6b | External User Management (admin) | IT Admin | v2 | Retention + Efficiency | Indirect | M | M | **P2** |
 | 7 | Sync Log Analyzer | IT Admin / App Maker | v2 | Retention + Efficiency | Indirect | M | L | **P2** |
 | 8 | AI Usage Monitoring | IT Admin | v2 | Upsell + Efficiency | Direct | M | L | **P3** |
 | 9 | Billing & License Management | IT Admin | v2 | Efficiency + Upsell | Direct | M | M | **P3** |
@@ -163,24 +164,86 @@ Guided UI for setting up, configuring, and managing MCP servers connected to Res
 
 ---
 
-### 6. External User Management
-**Persona**: IT Admin
-**Phase**: v2
+### 6. External Users — SPLIT INTO TWO DISTINCT CAPABILITIES
+
+**⚠️ Reassessment note (v1.1)**: "External User Management" was originally framed as a v2 admin feature. This is wrong. It conflates two fundamentally different capabilities with very different business value. They must be separated.
+
+---
+
+### 6a. External Data Collection — Forms for Non-Licensed Users
+**Persona**: External parties (citizens, contractors, suppliers, insurance claimants, kiosk users) + the IT Manager / Field Service Manager who configures the form
+**Phase**: v2 early — should be pulled forward given strategic importance
+**Priority**: P1 ⬆️ (reassessed from P2)
 
 **Problem it solves**:
-Organizations with multiple Resco deployments across business units or geographies have no unified view of who has access to what. License management is handled via Resco support calls or manual spreadsheets. When employees leave or change roles, access is revoked reactively, not proactively.
+Organizations using Dynamics 365 / Dataverse need to collect structured data from people who are NOT employees and NOT Resco license holders — contractors submitting daily reports, suppliers updating records, citizens filing service requests, insurance claimants recording incident details, airport kiosk users checking in equipment.
 
-**What it does**:
-Unified view of all users across the organization: which org unit they belong to, which Resco licenses are assigned, ability to assign/unassign licenses, filter by org/role/status. Replaces manual Resco support calls for user administration.
+Today there is no good solution for this. The options are:
+
+| Current Option | Why it's broken |
+|---|---|
+| **Microsoft Power Pages** | Requires setup, licensing cost per visitor, overkill for a simple form — and still requires users to navigate a portal |
+| **Microsoft Power Apps (canvas)** | Requires app installation or browser access with per-user licensing — unacceptable for one-time or occasional external users |
+| **Custom web forms** | Requires development, hosting, manual Dataverse integration — expensive, slow to build, hard to maintain |
+| **Paper / email** | Zero structure, manual data entry into Dynamics afterwards |
+
+**The Microsoft licensing trap**: Microsoft's model requires every user who touches Dynamics data to be a paid license holder — even if that person submits one form per month. Power Pages is the only semi-viable workaround but is expensive, complex to configure, and still requires authenticated sessions for anything non-trivial. For external users filling out a single questionnaire, the Microsoft tax is absurd.
+
+**What Resco Studio offers instead**:
+A Field Service Manager or IT Manager builds a questionnaire in Forms Studio (already in v1). That form is published as a shareable link or QR code. An external user opens the link in any browser — no app install, no Resco account, no Microsoft license. They fill out the form. Data is written directly to Dataverse / Dynamics in the correct entity and field structure. The external user never knows or cares that Resco or Dynamics is involved.
+
+**Use cases**:
+| Use case | External user | Data destination |
+|---|---|---|
+| Contractor daily report | Field contractor | Dynamics work orders |
+| Supplier onboarding | New supplier | Dataverse supplier entity |
+| Insurance claim intake | Policyholder | Dynamics case entity |
+| Airport equipment check-in | Ground crew / passenger | Dataverse asset entity |
+| Citizen service request | Member of public | Dynamics case / service request |
+| Safety incident report | Visitor / contractor on site | Dataverse incident entity |
+| Inspection sign-off | Subcontractor | Resco questionnaire entity |
 
 **Business Value**:
 | Value Type | Mechanism | Estimated Impact |
 |---|---|---|
-| **Retention** | Self-service reduces friction; orgs that self-manage are stickier than orgs dependent on support | Medium |
-| **Efficiency** | Reduces Resco support load for user management requests — internal cost savings | Indirect |
-| **Acquisition** | Enterprise buyers expect self-service user management as a baseline — absence is a deal blocker | Medium (table stakes) |
+| **Acquisition — new market segment** | Attracts organizations that use Dynamics/Dataverse but have no viable external data collection story — this is a new buyer who doesn't need to be a Resco mobile app customer first | **Very High** — opens TAM beyond current 550 customers |
+| **Acquisition — competitive wedge vs Microsoft** | "Resco collects from external users without per-user licensing; Microsoft charges you for every contractor" is a concrete, financially quantifiable value prop | **High** — directly attacks Microsoft licensing pain |
+| **Upsell** | Each published external form drives AI credits (form generation) + potential seat expansion as more Field Service Managers build forms | Direct revenue |
+| **Retention** | Organizations that route external data collection through Resco Studio become deeply integrated — migrating means rebuilding all form-to-Dataverse mappings | **High** — strong switching cost |
 
-**Why it's P2**: This is a hygiene feature — its absence can block deals (enterprise buyers expect it) but its presence doesn't win deals. It must exist by the time Studio reaches mid-market and enterprise-scale rollout, but is not a driver of initial adoption among the IT Manager / Field Service Manager personas.
+**Why this is P1, not P2**:
+This is not an admin feature. It is a new product surface that addresses a real, painful, underserved problem for which Microsoft's answer ("buy more licenses") is broadly rejected by customers. The TAM is not 550 Resco customers — it is every organization on Dynamics/Dataverse with external data collection needs. That is a significantly larger market.
+
+The Forms Builder (v1, already built) is the foundation. The external-facing, no-account-required publish-and-collect layer is the incremental addition. Build complexity is Medium — the form engine exists; what's needed is an anonymous/token-based access layer and a direct Dataverse write connector.
+
+**Competitive framing**:
+> "Power Pages costs money and requires portal setup. Power Apps requires app installation. Resco Studio lets you publish a form as a QR code — a contractor scans it, fills it in, data lands in Dynamics. No license. No install. No friction."
+
+This is a headline-level differentiator that IT buyers and procurement teams immediately understand and can calculate ROI from (license cost saved × number of external users).
+
+**Key metric**: Number of external form submissions per month per account; number of accounts using external form publication; license cost displacement vs Power Pages equivalent.
+
+---
+
+### 6b. External User Management — Admin Portal
+**Persona**: IT Admin
+**Phase**: v2
+**Priority**: P2 (unchanged)
+
+**Problem it solves**:
+Organizations with multiple Resco deployments across business units or geographies have no unified view of who has access to what. License management is handled via Resco support calls or manual spreadsheets.
+
+**What it does**:
+Unified view of all users across the organization: org unit assignment, Resco license counts, assign/unassign. Replaces manual Resco support calls for user administration.
+
+**Business Value**:
+| Value Type | Mechanism | Estimated Impact |
+|---|---|---|
+| **Retention** | Self-service reduces friction; reduces dependency on Resco support | Medium |
+| **Efficiency** | Reduces Resco support load for license management | Indirect |
+| **Acquisition** | Table stakes for enterprise procurement approval | Medium |
+
+**Why it's P2**: Hygiene. Absence can block enterprise deals; presence doesn't win them. Build before enterprise-scale rollout, not before.
 
 **Key metric**: % of user management actions completed self-service vs via Resco support ticket.
 
@@ -257,7 +320,7 @@ Self-service billing portal: view current license tier and seat count, add/remov
 ## Prioritization Summary
 
 ### v1: Ship Now (P1) — Core Value Promise
-These four capabilities together deliver the product's core promise to both primary personas. All are working today.
+These four capabilities deliver the product's core promise to both primary personas. All are working today.
 
 | Capability | Why Ship First |
 |---|---|
@@ -266,15 +329,16 @@ These four capabilities together deliver the product's core promise to both prim
 | **Notes (Notebook LLM)** | Highest retention driver; compounds in value over time |
 | **AI Forms / Questionnaire Builder** | Opens second buyer persona; multiplies seats per account |
 
-### v1 Supporting (P2 — early): Deepen Value for Technical Users
-| Capability | Why v1 Supporting |
+### v1 Supporting / v2 Early (P1–P2): Strategic Acceleration
+| Capability | Why Pull Forward |
 |---|---|
 | **MCP Hub** | Already built; serves technical champions; drives AI credit consumption |
+| **External Data Collection (non-licensed users)** | ⬆️ Reassessed to P1 — opens new market beyond 550 existing customers; direct competitive wedge vs Microsoft licensing; Forms Builder foundation already exists |
 
 ### v2: Required for Scale (P2) — Hygiene + Retention
 | Capability | Why v2 |
 |---|---|
-| **External User Management** | Table stakes for enterprise; needed before large account rollout |
+| **External User Management (admin)** | Table stakes for enterprise; needed before large account rollout |
 | **Sync Log Analyzer** | High retention value, low complexity — good early v2 win |
 
 ### v2+: Revenue Operations (P3) — Monetization Infrastructure
@@ -289,12 +353,15 @@ These four capabilities together deliver the product's core promise to both prim
 
 | Business Value Type | Primary Capabilities | Revenue Mechanism |
 |---|---|---|
-| **Acquisition** | App Builder, Home Replacement, Forms Builder | New Resco customers won because Studio exists |
-| **Upsell / Expansion** | App Builder, Home Replacement, Forms Builder, MCP Hub, Usage Monitoring, Billing | Seat expansion (€100/user) + AI credit consumption |
-| **Retention** | Notes, Sync Log Analyzer, User Management | Churn reduction — stickiness and switching cost |
-| **Efficiency** | User Management, Sync Logs, Billing | Resco internal support cost reduction |
+| **Acquisition — existing Resco market** | App Builder, Home Replacement, Forms Builder | New Resco customers won because Studio exists |
+| **Acquisition — new market (non-licensed external data)** | **External Data Collection** | Organizations on Dynamics/Dataverse with external user data collection needs — not current Resco customers; Microsoft licensing pain drives them to Resco |
+| **Upsell / Expansion** | App Builder, Home Replacement, Forms Builder, MCP Hub, Usage Monitoring, Billing, External Data Collection | Seat expansion (€100/user) + AI credit consumption + form submission volume |
+| **Retention** | Notes, Sync Log Analyzer, External Data Collection, User Management | Churn reduction — stickiness and switching cost |
+| **Efficiency** | User Management (admin), Sync Logs, Billing | Resco internal support cost reduction |
 
-**Key insight**: v1 capabilities are disproportionately acquisition and upsell drivers. v2 capabilities are disproportionately retention and efficiency drivers. This means v1 wins customers and v2 keeps them — both phases are necessary for a healthy business.
+**Key insight — v1.1 update**: External Data Collection (6a) is the only capability in this map that simultaneously drives acquisition in a *new* market segment AND creates strong retention through deep Dataverse integration. It expands the TAM beyond Resco's 550 existing customers to any organization on Dynamics/Dataverse that needs to collect data from external parties without paying Microsoft per-user licensing. This is the feature most likely to generate inbound acquisition interest from organizations that have never considered Resco before.
+
+**Original key insight (unchanged)**: v1 capabilities win customers, v2 capabilities keep them — both phases are necessary for a healthy business.
 
 ---
 
