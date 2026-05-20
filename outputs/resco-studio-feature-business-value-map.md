@@ -206,10 +206,20 @@ A Field Service Manager or IT Manager builds a questionnaire in Forms Studio (al
 **Business Value**:
 | Value Type | Mechanism | Estimated Impact |
 |---|---|---|
-| **Acquisition — new market segment** | Attracts organizations that use Dynamics/Dataverse but have no viable external data collection story — this is a new buyer who doesn't need to be a Resco mobile app customer first | **Very High** — opens TAM beyond current 550 customers |
-| **Acquisition — competitive wedge vs Microsoft** | "Resco collects from external users without per-user licensing; Microsoft charges you for every contractor" is a concrete, financially quantifiable value prop | **High** — directly attacks Microsoft licensing pain |
-| **Upsell** | Each published external form drives AI credits (form generation) + potential seat expansion as more Field Service Managers build forms | Direct revenue |
-| **Retention** | Organizations that route external data collection through Resco Studio become deeply integrated — migrating means rebuilding all form-to-Dataverse mappings | **High** — strong switching cost |
+| **Acquisition — new market segment** | Attracts organizations on Dynamics/Dataverse with no viable external data collection story — new buyer who doesn't need to be a Resco mobile app customer first | **Very High** — opens TAM beyond current 550 customers |
+| **Acquisition — competitive wedge vs Microsoft** | Small per-external-user fee is still dramatically cheaper than Microsoft per-user licensing (Power Pages, Power Apps) for occasional/one-time external users | **High** — financially quantifiable advantage even at paid tier |
+| **Direct revenue — consumption model** | Small fee per external user (per submission, per active external user/month, or per form published) — scales with customer usage volume | **Direct, scalable** — revenue grows with customer adoption without additional seat sales |
+| **Retention** | Organizations routing external data collection through Resco Studio become deeply integrated — form-to-Dataverse mappings create high switching cost | **High** |
+
+**Pricing model for external users**:
+The fee must be positioned relative to Microsoft's alternative — not as a cost but as a saving. Example anchoring:
+- Microsoft Power Pages: ~$200/month for 1,000 authenticated sessions, or complex per-user licensing
+- Resco external form: small flat fee per submission or per active external user/month (e.g., €0.10–€0.50 per submission, or €1–€5/external user/month)
+- Customer calculation: "We have 200 contractors submitting weekly reports. Microsoft would charge us for 200 licensed users. Resco charges us a fraction of that per submission."
+
+Even at a small fee, Resco is dramatically cheaper than Microsoft's licensing model for high-volume, low-frequency external users. This is the value story — not "it's free" but "it's priced for what it actually is."
+
+**Pricing TBD**: Exact unit (per submission / per active external user / per published form) and rate requires validation with target customers. Consumption-based model recommended to align cost with value delivered.
 
 **Why this is P1, not P2**:
 This is not an admin feature. It is a new product surface that addresses a real, painful, underserved problem for which Microsoft's answer ("buy more licenses") is broadly rejected by customers. The TAM is not 550 Resco customers — it is every organization on Dynamics/Dataverse with external data collection needs. That is a significantly larger market.
@@ -354,8 +364,9 @@ These four capabilities deliver the product's core promise to both primary perso
 | Business Value Type | Primary Capabilities | Revenue Mechanism |
 |---|---|---|
 | **Acquisition — existing Resco market** | App Builder, Home Replacement, Forms Builder | New Resco customers won because Studio exists |
-| **Acquisition — new market (non-licensed external data)** | **External Data Collection** | Organizations on Dynamics/Dataverse with external user data collection needs — not current Resco customers; Microsoft licensing pain drives them to Resco |
-| **Upsell / Expansion** | App Builder, Home Replacement, Forms Builder, MCP Hub, Usage Monitoring, Billing, External Data Collection | Seat expansion (€100/user) + AI credit consumption + form submission volume |
+| **Acquisition — new market (external data collection)** | **External Data Collection** | Organizations on Dynamics/Dataverse with external user data collection needs — not current Resco customers; Microsoft licensing pain drives them to Resco |
+| **Direct consumption revenue** | **External Data Collection** | Small fee per external user submission / active external user / published form — scales independently of seat licenses; grows with customer volume |
+| **Upsell / Expansion** | App Builder, Home Replacement, Forms Builder, MCP Hub, Usage Monitoring, Billing, External Data Collection | Seat expansion (€100/user) + AI credits + external user consumption fees |
 | **Retention** | Notes, Sync Log Analyzer, External Data Collection, User Management | Churn reduction — stickiness and switching cost |
 | **Efficiency** | User Management (admin), Sync Logs, Billing | Resco internal support cost reduction |
 
