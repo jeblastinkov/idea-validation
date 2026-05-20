@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resco Studio ROI Calculator</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #f5f6f8;
+    color: #1a1a2e;
+    min-height: 100vh;
+  }
+
+  header {
+    background: #1a1a2e;
+    color: #fff;
+    padding: 24px 40px;
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+  }
+  header h1 { font-size: 20px; font-weight: 600; }
+  header span { font-size: 13px; color: #8b8fa8; }
+
+  .layout {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 24px;
+    padding: 24px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .panel {
+    background: #fff;
+    border-radius: 10px;
+    padding: 24px;
+    border: 1px solid #e8eaf0;
+  }
+
+  .panel h2 {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #8b8fa8;
+    margin-bottom: 20px;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #c0c4d4;
+    margin: 20px 0 10px;
+  }
+  .section-label:first-of-type { margin-top: 0; }
+
+  .field {
+    margin-bottom: 14px;
+  }
+  .field label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: #444;
+    margin-bottom: 5px;
+  }
+  .field label .val {
+    font-weight: 600;
+    color: #1a1a2e;
+    min-width: 60px;
+    text-align: right;
+  }
+
+  input[type=range] {
+    width: 100%;
+    height: 4px;
+    accent-color: #3b5bdb;
+    cursor: pointer;
+  }
+
+  /* Results */
+  .results-top {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .kpi {
+    background: #f5f6f8;
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+  }
+  .kpi.highlight {
+    background: #eef2ff;
+    border: 1px solid #c5cff7;
+  }
+  .kpi .label { font-size: 11px; color: #8b8fa8; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
+  .kpi .number { font-size: 26px; font-weight: 700; color: #1a1a2e; }
+  .kpi .number.green { color: #2f9e44; }
+  .kpi .number.blue { color: #3b5bdb; }
+  .kpi .sub { font-size: 11px; color: #8b8fa8; margin-top: 3px; }
+
+  /* Breakdown */
+  .breakdown {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .breakdown-box {
+    background: #f5f6f8;
+    border-radius: 8px;
+    padding: 14px;
+  }
+  .breakdown-box h3 { font-size: 12px; font-weight: 600; color: #8b8fa8; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px; }
+  .breakdown-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #555;
+    padding: 3px 0;
+    border-bottom: 1px solid #e8eaf0;
+  }
+  .breakdown-row:last-child { border-bottom: none; }
+  .breakdown-row .amount { font-weight: 600; color: #1a1a2e; }
+  .breakdown-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    font-weight: 700;
+    color: #1a1a2e;
+    padding-top: 8px;
+    margin-top: 4px;
+    border-top: 2px solid #e8eaf0;
+  }
+
+  /* 3-Year table */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+  th {
+    background: #1a1a2e;
+    color: #fff;
+    padding: 8px 12px;
+    text-align: right;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  th:first-child { text-align: left; }
+  td {
+    padding: 7px 12px;
+    text-align: right;
+    border-bottom: 1px solid #e8eaf0;
+    color: #444;
+  }
+  td:first-child { text-align: left; font-weight: 500; color: #1a1a2e; }
+  tr:hover td { background: #f9fafb; }
+  tr.total-row td { font-weight: 700; background: #f0f2f8; color: #1a1a2e; border-top: 2px solid #c5cff7; }
+  tr.net-row td { font-weight: 700; font-size: 13px; }
+  tr.net-row td.pos { color: #2f9e44; }
+  tr.net-row td.neg { color: #e03131; }
+  tr.roi-row td { font-size: 12px; color: #3b5bdb; font-weight: 600; }
+
+  .warning-box {
+    background: #fff9db;
+    border: 1px solid #ffd43b;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 12px;
+    color: #5c4a00;
+    margin-top: 12px;
+    display: none;
+  }
+
+  .note {
+    font-size: 11px;
+    color: #8b8fa8;
+    margin-top: 16px;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 900px) {
+    .layout { grid-template-columns: 1fr; padding: 16px; }
+    .results-top { grid-template-columns: 1fr 1fr; }
+    .breakdown { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Resco Studio — ROI Calculator</h1>
+  <span>Adjust inputs to model your scenario</span>
+</header>
+
+<div class="layout">
+
+  <!-- LEFT: Inputs -->
+  <div class="panel">
+    <h2>Inputs</h2>
+
+    <div class="section-label">People & Cost</div>
+
+    <div class="field">
+      <label>IT Manager seats <span class="val" id="v-itseats">1</span></label>
+      <input type="range" id="itseats" min="1" max="5" step="1" value="1">
+    </div>
+    <div class="field">
+      <label>Field Service Manager seats <span class="val" id="v-fsseats">2</span></label>
+      <input type="range" id="fsseats" min="0" max="6" step="1" value="2">
+    </div>
+    <div class="field">
+      <label>IT Manager cost (€/hr) <span class="val" id="v-itrate">€50</span></label>
+      <input type="range" id="itrate" min="30" max="90" step="5" value="50">
+    </div>
+    <div class="field">
+      <label>FS Manager cost (€/hr) <span class="val" id="v-fsrate">€40</span></label>
+      <input type="range" id="fsrate" min="25" max="70" step="5" value="40">
+    </div>
+
+    <div class="section-label">Time Savings</div>
+
+    <div class="field">
+      <label>IT Manager hours saved / day <span class="val" id="v-ithours">1.5 hrs</span></label>
+      <input type="range" id="ithours" min="0.5" max="3" step="0.5" value="1.5">
+    </div>
+    <div class="field">
+      <label>FS Manager minutes saved / day <span class="val" id="v-fsmins">30 min</span></label>
+      <input type="range" id="fsmins" min="10" max="90" step="10" value="30">
+    </div>
+    <div class="field">
+      <label>Working days / year <span class="val" id="v-days">220</span></label>
+      <input type="range" id="days" min="200" max="250" step="5" value="220">
+    </div>
+
+    <div class="section-label">Studio Pricing</div>
+
+    <div class="field">
+      <label>Seat price (€/user/month) <span class="val" id="v-seatprice">€100</span></label>
+      <input type="range" id="seatprice" min="50" max="200" step="10" value="100">
+    </div>
+    <div class="field">
+      <label>AI credits / month <span class="val" id="v-credits">€50</span></label>
+      <input type="range" id="credits" min="0" max="500" step="25" value="50">
+    </div>
+
+    <div class="section-label">External Users</div>
+
+    <div class="field">
+      <label>Resco fee (€/ext. user/month) <span class="val" id="v-rescofee">€1.00</span></label>
+      <input type="range" id="rescofee" min="0.10" max="3.00" step="0.10" value="1.00">
+    </div>
+    <div class="field">
+      <label>Microsoft cost (€/ext. user/month) <span class="val" id="v-msfee">€1.85</span></label>
+      <input type="range" id="msfee" min="0.50" max="5.00" step="0.10" value="1.85">
+    </div>
+    <div class="field">
+      <label>External users — Year 1 <span class="val" id="v-ext1">300</span></label>
+      <input type="range" id="ext1" min="0" max="2000" step="50" value="300">
+    </div>
+    <div class="field">
+      <label>External users — Year 2 <span class="val" id="v-ext2">2,000</span></label>
+      <input type="range" id="ext2" min="0" max="10000" step="250" value="2000">
+    </div>
+    <div class="field">
+      <label>External users — Year 3 <span class="val" id="v-ext3">15,000</span></label>
+      <input type="range" id="ext3" min="0" max="50000" step="1000" value="15000">
+    </div>
+  </div>
+
+  <!-- RIGHT: Results -->
+  <div>
+
+    <!-- KPIs -->
+    <div class="results-top">
+      <div class="kpi highlight">
+        <div class="label">Year 1 ROI</div>
+        <div class="number blue" id="r-roi">—</div>
+        <div class="sub">return on investment</div>
+      </div>
+      <div class="kpi highlight">
+        <div class="label">Net Benefit Y1</div>
+        <div class="number green" id="r-net">—</div>
+        <div class="sub">value minus cost</div>
+      </div>
+      <div class="kpi highlight">
+        <div class="label">Payback Period</div>
+        <div class="number blue" id="r-payback">—</div>
+        <div class="sub">months to break even</div>
+      </div>
+    </div>
+
+    <!-- Breakdown -->
+    <div class="breakdown">
+      <div class="breakdown-box panel">
+        <h3>Annual Cost</h3>
+        <div class="breakdown-row"><span>IT Manager seats</span><span class="amount" id="c-it">—</span></div>
+        <div class="breakdown-row"><span>FS Manager seats</span><span class="amount" id="c-fs">—</span></div>
+        <div class="breakdown-row"><span>AI credits</span><span class="amount" id="c-credits">—</span></div>
+        <div class="breakdown-row"><span>External user fees</span><span class="amount" id="c-ext">—</span></div>
+        <div class="breakdown-total"><span>Total</span><span id="c-total">—</span></div>
+      </div>
+      <div class="breakdown-box panel">
+        <h3>Annual Value</h3>
+        <div class="breakdown-row"><span>IT Manager time saved</span><span class="amount" id="v-it">—</span></div>
+        <div class="breakdown-row"><span>FS Manager time saved</span><span class="amount" id="v-fs">—</span></div>
+        <div class="breakdown-row"><span>Ext. user MS savings</span><span class="amount" id="v-ext">—</span></div>
+        <div class="breakdown-total"><span>Total</span><span id="v-total">—</span></div>
+      </div>
+    </div>
+
+    <!-- 3-Year Table -->
+    <div class="panel">
+      <h2>3-Year Projection</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Year 1</th>
+            <th>Year 2</th>
+            <th>Year 3</th>
+            <th>3-Year Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Seat licenses</td><td id="t-seats1">—</td><td id="t-seats2">—</td><td id="t-seats3">—</td><td id="t-seatsT">—</td></tr>
+          <tr><td>AI credits</td><td id="t-cr1">—</td><td id="t-cr2">—</td><td id="t-cr3">—</td><td id="t-crT">—</td></tr>
+          <tr><td>External user fees</td><td id="t-ef1">—</td><td id="t-ef2">—</td><td id="t-ef3">—</td><td id="t-efT">—</td></tr>
+          <tr class="total-row"><td>Total Cost</td><td id="t-cost1">—</td><td id="t-cost2">—</td><td id="t-cost3">—</td><td id="t-costT">—</td></tr>
+          <tr><td>Time savings (IT)</td><td id="t-its1">—</td><td id="t-its2">—</td><td id="t-its3">—</td><td id="t-itsT">—</td></tr>
+          <tr><td>Time savings (FS)</td><td id="t-fss1">—</td><td id="t-fss2">—</td><td id="t-fss3">—</td><td id="t-fssT">—</td></tr>
+          <tr><td>Ext. user MS savings</td><td id="t-ev1">—</td><td id="t-ev2">—</td><td id="t-ev3">—</td><td id="t-evT">—</td></tr>
+          <tr class="total-row"><td>Total Value</td><td id="t-val1">—</td><td id="t-val2">—</td><td id="t-val3">—</td><td id="t-valT">—</td></tr>
+          <tr class="net-row"><td>Net Benefit</td><td id="t-net1">—</td><td id="t-net2">—</td><td id="t-net3">—</td><td id="t-netT">—</td></tr>
+          <tr class="roi-row"><td>ROI</td><td id="t-roi1">—</td><td id="t-roi2">—</td><td id="t-roi3">—</td><td id="t-roiT">—</td></tr>
+        </tbody>
+      </table>
+      <div class="warning-box" id="warning-y3">
+        ⚠️ Year 3 external user fees exceed Microsoft savings at this volume and pricing. Consider tiered pricing (e.g. reduced fee above 5,000 users) before reaching this scale.
+      </div>
+      <p class="note">
+        Assumptions: seat count constant across years; AI credits grow 20%/year; external users per Year 2 and Year 3 inputs above.
+        Microsoft Power Pages authenticated user rate: <strong>€1.85/user/month</strong> (annual plan, 2025).
+        IT Manager avg. hourly cost based on German market data (PayScale / Glassdoor 2025).
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  const fmt = n => '€' + Math.round(n).toLocaleString('de-DE');
+  const fmtN = n => {
+    const r = Math.round(n);
+    return (r >= 0 ? '+' : '') + '€' + Math.abs(r).toLocaleString('de-DE');
+  };
+  const fmtPct = n => Math.round(n) + '%';
+
+  function get(id) { return parseFloat(document.getElementById(id).value); }
+  function set(id, val) { const el = document.getElementById(id); if (el) el.textContent = val; }
+  function setClass(id, cls) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.classList.remove('pos', 'neg', 'green');
+    if (cls) el.classList.add(cls);
+  }
+
+  function calc() {
+    const itSeats  = get('itseats');
+    const fsSeats  = get('fsseats');
+    const itRate   = get('itrate');
+    const fsRate   = get('fsrate');
+    const itHours  = get('ithours');
+    const fsMins   = get('fsmins');
+    const days     = get('days');
+    const seatP    = get('seatprice');
+    const credits  = get('credits');
+    const rescofee = get('rescofee');
+    const msfee    = get('msfee');
+    const ext1     = get('ext1');
+    const ext2     = get('ext2');
+    const ext3     = get('ext3');
+
+    // Update labels
+    set('v-itseats', itSeats);
+    set('v-fsseats', fsSeats);
+    set('v-itrate', '€' + itRate);
+    set('v-fsrate', '€' + fsRate);
+    set('v-ithours', itHours + ' hrs');
+    set('v-fsmins', fsMins + ' min');
+    set('v-days', days);
+    set('v-seatprice', '€' + seatP);
+    set('v-credits', '€' + credits);
+    set('v-rescofee', '€' + rescofee.toFixed(2));
+    set('v-msfee', '€' + msfee.toFixed(2));
+    set('v-ext1', ext1.toLocaleString('de-DE'));
+    set('v-ext2', ext2.toLocaleString('de-DE'));
+    set('v-ext3', ext3.toLocaleString('de-DE'));
+
+    // Costs per year
+    const seats = (itSeats + fsSeats) * seatP * 12;
+    const cr1 = credits * 12;
+    const cr2 = cr1 * 1.2;
+    const cr3 = cr2 * 1.2;
+    const ef1 = ext1 * rescofee * 12;
+    const ef2 = ext2 * rescofee * 12;
+    const ef3 = ext3 * rescofee * 12;
+    const cost1 = seats + cr1 + ef1;
+    const cost2 = seats + cr2 + ef2;
+    const cost3 = seats + cr3 + ef3;
+    const costT = cost1 + cost2 + cost3;
+
+    // Value per year
+    const itSave = itSeats * itHours * days * itRate;
+    const fsSave = fsSeats * (fsMins / 60) * days * fsRate;
+    const timeSave = itSave + fsSave;
+    const ev1 = ext1 * (msfee - rescofee) * 12;
+    const ev2 = ext2 * (msfee - rescofee) * 12;
+    const ev3 = ext3 * (msfee - rescofee) * 12;
+    const val1 = timeSave + ev1;
+    const val2 = timeSave + ev2;
+    const val3 = timeSave + ev3;
+    const valT = val1 + val2 + val3;
+
+    const net1 = val1 - cost1;
+    const net2 = val2 - cost2;
+    const net3 = val3 - cost3;
+    const netT = valT - costT;
+
+    const roi1 = cost1 > 0 ? (net1 / cost1) * 100 : 0;
+    const roi2 = cost2 > 0 ? (net2 / cost2) * 100 : 0;
+    const roi3 = cost3 > 0 ? (net3 / cost3) * 100 : 0;
+    const roiT = costT > 0 ? (netT / costT) * 100 : 0;
+
+    const payback = val1 > 0 ? (cost1 / (val1 / 12)) : 0;
+
+    // KPIs
+    set('r-roi', fmtPct(roi1));
+    set('r-net', fmt(net1));
+    set('r-payback', payback.toFixed(1) + ' mo');
+
+    // Breakdown
+    set('c-it', fmt(itSeats * seatP * 12));
+    set('c-fs', fmt(fsSeats * seatP * 12));
+    set('c-credits', fmt(cr1));
+    set('c-ext', fmt(ef1));
+    set('c-total', fmt(cost1));
+    set('v-it', fmt(itSave));
+    set('v-fs', fmt(fsSave));
+    set('v-ext', fmt(ev1));
+    set('v-total', fmt(val1));
+
+    // 3-year table
+    set('t-seats1', fmt(seats)); set('t-seats2', fmt(seats)); set('t-seats3', fmt(seats)); set('t-seatsT', fmt(seats * 3));
+    set('t-cr1', fmt(cr1)); set('t-cr2', fmt(cr2)); set('t-cr3', fmt(cr3)); set('t-crT', fmt(cr1 + cr2 + cr3));
+    set('t-ef1', fmt(ef1)); set('t-ef2', fmt(ef2)); set('t-ef3', fmt(ef3)); set('t-efT', fmt(ef1 + ef2 + ef3));
+    set('t-cost1', fmt(cost1)); set('t-cost2', fmt(cost2)); set('t-cost3', fmt(cost3)); set('t-costT', fmt(costT));
+    set('t-its1', fmt(itSave)); set('t-its2', fmt(itSave)); set('t-its3', fmt(itSave)); set('t-itsT', fmt(itSave * 3));
+    set('t-fss1', fmt(fsSave)); set('t-fss2', fmt(fsSave)); set('t-fss3', fmt(fsSave)); set('t-fssT', fmt(fsSave * 3));
+    set('t-ev1', fmt(ev1)); set('t-ev2', fmt(ev2)); set('t-ev3', fmt(ev3)); set('t-evT', fmt(ev1 + ev2 + ev3));
+    set('t-val1', fmt(val1)); set('t-val2', fmt(val2)); set('t-val3', fmt(val3)); set('t-valT', fmt(valT));
+
+    // Net rows with color
+    const netCells = [
+      ['t-net1', net1], ['t-net2', net2], ['t-net3', net3], ['t-netT', netT]
+    ];
+    netCells.forEach(([id, val]) => {
+      set(id, fmtN(val));
+      setClass(id, val >= 0 ? 'pos' : 'neg');
+    });
+
+    set('t-roi1', fmtPct(roi1)); set('t-roi2', fmtPct(roi2)); set('t-roi3', fmtPct(roi3)); set('t-roiT', fmtPct(roiT));
+
+    // Warning: Year 3 net negative
+    document.getElementById('warning-y3').style.display = net3 < 0 ? 'block' : 'none';
+  }
+
+  // Wire all inputs
+  document.querySelectorAll('input[type=range]').forEach(el => el.addEventListener('input', calc));
+
+  // Initial render
+  calc();
+</script>
+</body>
+</html>
