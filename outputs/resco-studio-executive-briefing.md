@@ -1,6 +1,6 @@
 # Resco Studio — Executive Briefing
 
-**Date**: 2026-05-19 | **Audience**: CEO, Head of Product, CTO | **Status**: Investment Decision Requested
+**Date**: 2026-05-21 | **Audience**: CEO, Head of Product, CTO | **Status**: Investment Decision Requested
 **Decision sought**: Approve closed beta launch (July 2026) and GA timeline (September 2026)
 
 ---
@@ -8,8 +8,9 @@
 ## TL;DR
 
 - **What**: A paid cloud platform that lets Resco customers build, configure, and run Resco deployments via natural language — across Vibe Studio (App Maker), Forms Studio (Field Service Manager), and Admin Portal (IT Admin).
+- **Foundation**: Resco Studio runs on top of the customer's existing Dataverse, Dynamics 365, Salesforce, or ServiceNow backend. No standalone database, no migration — it layers AI and tooling on what customers already own.
 - **Why invest**: Core product is already built. Competitors (Microsoft, Salesforce, ServiceNow) shipped AI app builders in 2025–2026; the window to own *AI-native Resco development* is open now and closing.
-- **Return**: 41–264% account-level ROI in Year 1 depending on scenario; €24K conservative ARR by end of 2026 from existing base; strategic value as new-logo acquisition driver materially exceeds direct revenue.
+- **Return**: An IT Manager saves ~€16,500/year in reclaimed hours — their Studio seat costs €1,200/year. **Studio pays for itself 13× over in Year 1 on time savings alone.**
 - **Risk**: Two unknowns — enterprise compliance approval pathway and willingness-to-pay at €100/seat. Both are testable in a 4-week discovery sprint before GA.
 - **Ask**: Approve discovery sprint + closed beta + September GA launch.
 
@@ -20,6 +21,10 @@
 A unified cloud workspace that replaces today's fragmented Resco tooling — Woodford, Questionnaire Designer, and external AI tools — with a single AI-native platform where the AI already understands the customer's exact Resco project.
 
 > **One platform. Three experiences. Resco-native AI that knows your project before you type the first word.**
+
+### Built on what customers already own
+
+Resco Studio is not a standalone product. It connects to the customer's existing backend — Dataverse, Dynamics 365, Salesforce, or ServiceNow — and reads their live Resco project. The AI understands entities, workflows, data relationships, and existing configurations. It modifies the actual project directly. No export, no import, no parallel environment to maintain.
 
 ---
 
@@ -47,6 +52,38 @@ Three role-specific experiences in one platform:
 
 ---
 
+## What Ships in v1 — MVP Feature List
+
+All five capabilities are working today. Investment required is operational hardening (security, scale, GTM enablement), not product engineering.
+
+| # | Capability | Who uses it | What it does |
+|---|---|---|---|
+| 1 | **AI Project Modifier** | IT Manager | Chat with AI in natural language — it reads the live Resco project and modifies list views, forms, workflows, and JavaScript directly. No Woodford manual config. |
+| 2 | **Home Replacement Builder** | IT Manager | AI-assisted canvas for custom Resco home screens with a reusable UI template library. Hours of manual work → minutes. |
+| 3 | **Notes (Notebook LLM)** | IT Manager | Persistent knowledge base for the Resco project. Explains existing configuration, answers "why does this work this way?", and suggests improvements. Compounds in value over time. |
+| 4 | **AI Forms / Questionnaire Builder** | Field Service Manager | Build, modify, and publish Resco questionnaires by describing what you need. Forms can be shared as QR code or link — accessible to external users (contractors, suppliers, citizens) without a Resco license. |
+| 5 | **MCP Hub** | IT Manager | Configure Resco as an MCP server and connect third-party MCP tools — enabling AI agent workflows that reach into and out of the Resco project. |
+
+**Deferred to v2**: Admin Portal (user management, billing, sync log analyzer, AI usage monitoring), volume-tiered external user pricing.
+
+---
+
+## Onboarding — How a New User Gets Started
+
+### If you already have a Resco project
+Connect Studio to your existing Dataverse / Dynamics 365 / Salesforce / ServiceNow backend. Studio reads your live project automatically. No setup, no import — you're in the AI assistant within minutes.
+
+### If you don't have a Resco project yet
+Resco hosts a **demo backend** on Resco cloud — a pre-configured Resco project with real data, real entities, and real workflows. New users try Studio against this demo environment immediately, with no backend account or IT approval required.
+
+This removes the single biggest onboarding barrier: *"I need to get IT to give me access to our Resco project before I can evaluate this."*
+
+Demo → connect your real project → start paying. The onboarding path is self-serve from day one.
+
+**Target**: New user completes first AI-driven project modification within 30 minutes of signup.
+
+---
+
 ## Value Proposition
 
 **For Resco customers**: The only AI development environment that understands your Resco project — its data model, workflows, entities, and integrations — and modifies it directly through natural language.
@@ -55,29 +92,49 @@ Three role-specific experiences in one platform:
 
 ---
 
-## MVP Scope (v1 — Shipping Today)
+## ROI — How the Money Works
 
-All five capabilities are working today. Investment required is operational hardening (security, scale, GTM enablement), not product engineering.
+### The simple version
 
-1. **AI Project Modifier (App Builder)** — natural language modifies Resco projects directly
-2. **Home Replacement Builder** — AI-assisted custom home screens with reusable template library
-3. **Notes (Notebook LLM)** — persistent project knowledge base; explains existing config and suggests changes
-4. **AI Forms / Questionnaire Builder** — Field Service Manager self-serves form changes; publishable to external users
-5. **MCP Hub** — configure Resco MCP servers and add 3rd party MCPs
+A typical IT Manager at a German enterprise costs ~€50/hour (salary + employer overhead). They currently spend **1.5 hours per day** on Resco configuration tasks that Studio automates or accelerates.
 
-**Deferred to v2**: Admin Portal (user mgmt, billing, sync logs, AI usage monitoring), volume-tiered external user pricing.
+**That's €16,500 saved per IT Manager per year.**
+
+A Studio seat costs **€1,200/year** (€100/month).
+
+**Studio pays for itself 13× over in Year 1. Payback in under 1 month.**
 
 ---
 
-## Personas — Who Pays
+### All three personas — Year 1 savings
 
-| Persona | Role at customer | Tools today | Studio replaces |
+| Role | Time saved | Hourly cost | Annual saving |
 |---|---|---|---|
-| App Maker | IT Manager | Woodford + ChatGPT + Resco support tickets | All of it |
-| Field Service Manager | Ops / Field Service lead | IT tickets, paper forms, manual workarounds | Independence from IT for forms |
-| IT Admin *(v2)* | System admin | Resco support calls, spreadsheets | Self-service operations |
+| IT Manager (1 seat) | 1.5 hrs/day | €50/hr | **€16,500** |
+| Field Service Manager (2 seats) | 0.5 hrs/day each | €40/hr | **€8,800** |
+| **Total time savings** | | | **€25,300** |
 
-**Primary buyer**: IT Manager. **Multiplies seats per account**: Field Service Manager.
+**Total Studio cost** (3 seats + AI credits): €4,200/year
+
+**Net saving**: €21,100 | **ROI: 502%** | **Payback: 2 months**
+
+---
+
+### Scenarios
+
+| Scenario | Seats | Studio Cost/yr | Value Delivered/yr | ROI | Payback |
+|---|---|---|---|---|---|
+| **Minimum** — 1 IT Manager | 1 seat | €1,800 | €16,500 | **817%** | < 2 months |
+| **Base** — 1 IT + 2 FS, 300 ext. users | 3 seats | €15,000 | ~€21,160 | **41%** | 8.5 months |
+| **Growth** — 2 IT + 3 FS, 1,000 ext. users | 5 seats | ~€38,000 | ~€38,760 | **2%** ⚠️ | ~12 months |
+
+> **Note on external users**: At €3/user/month, Resco is competitive vs Microsoft pay-as-you-go (€3.70) at all volumes but is more expensive than Microsoft annual plan above ~62 users/month. **The seat ROI stands regardless.** Volume-tiered external user pricing is flagged for v2 to address high-scale accounts.
+
+---
+
+### Why the time savings are real
+
+IT Managers report using ChatGPT to generate Resco JavaScript, then spending equal time debugging because ChatGPT has no Resco context. Studio eliminates that loop entirely — the AI knows the project data model, so generated code works first time. One correct modification replaces 2+ hours of manual configure → test → debug → repeat.
 
 ---
 
@@ -96,19 +153,6 @@ All five capabilities are working today. Investment required is operational hard
 ### 2026 Targets
 - **50 active users**, **20 paying** = **€24K ARR** (seats) + AI credits
 - Closed beta: July | GA: September | First 20 paying: December
-
-### Account-Level ROI
-
-| Scenario | Year 1 ROI | Payback |
-|---|---|---|
-| Low (1 IT + 1 FS, 100 ext. users) | 112% | 5.6 months |
-| Base (1 IT + 2 FS, 300 ext. users) | 41% | 8.5 months |
-| High (2 IT + 3 FS, 1,000 ext. users) | 1.9% ⚠️ | 11.8 months |
-
-> **IT Manager time savings alone (€16,500/year per seat) cover total seat cost (€3,600/year) by 4.6×.** Studio justifies itself on productivity gains regardless of external user economics.
-
-### Pricing Issue Flagged
-At €3/external user/month, Resco is more expensive than Microsoft Power Pages annual plan (€1.85) above ~62 users/month. **Volume-tiered external user pricing is needed before any customer scales beyond 1,000 external users** — otherwise the account-level ROI inverts. Recommended in v2 roadmap.
 
 ---
 
@@ -188,4 +232,4 @@ For deeper detail, see:
 
 ---
 
-*Prepared: 2026-05-19 | Owner: Resco Product Team | Next review: After discovery sprint (end of June 2026)*
+*Prepared: 2026-05-21 | Owner: Resco Product Team | Next review: After discovery sprint (end of June 2026)*
